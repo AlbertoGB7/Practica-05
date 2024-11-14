@@ -11,12 +11,17 @@ $usuari = $password = $confirm_password = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $accion = $_POST['accion']; // Obtenim l'acció (login o registre)
     $usuari = trim($_POST['usuari']);
+    $email = trim($_POST['email']);
     $password = trim($_POST['pass']);
 
     if ($accion == 'login') {
         // Processar login
         if (empty($usuari)) {
             $errors[] = "El camp 'Usuari' és obligatori.";
+        }
+        // Verificar que el correu sigui vàlid!!
+        if (empty($email)) {
+            $errors[] = "Introdueix un correu vàlid.";
         }
         if (empty($password)) {
             $errors[] = "El camp 'Contrasenya' és obligatori.";
@@ -25,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($errors)) {
             $_SESSION['missatge'] = implode("<br>", $errors);
             $_SESSION['usuari'] = $usuari;
+            $_SESSION['email'] = $email;
         } else {
             // Verificar que l'usuari existeix
             $user = obtenirUsuariPerNom($usuari); // Fem servir la funció del model
@@ -43,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Credencials incorrectes
                 $_SESSION['missatge'] = "Usuari o contrasenya incorrectes";
                 $_SESSION['usuari'] = $usuari;
+                $_SESSION['email'] = $email;
             }
         }
 
@@ -57,6 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($password)) {
             $errors[] = "El camp 'Contrasenya' és obligatori.";
         }
+        if (empty($email_reg)) {
+            $errors[] = "El correu ha de ser vàlid.";
+        }
         if ($password !== $confirm_password) {
             $errors[] = "Les contrasenyes no coincideixen.";
         }
@@ -68,13 +78,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($errors)) {
             $_SESSION['missatge'] = implode("<br>", $errors);
             $_SESSION['usuari_reg'] = $usuari_reg;
+            $_SESSION['email_reg'] = $email_reg;
         } else {
             // Verifiquem si l'usuari ja existeix
             $existing_user = obtenirUsuariPerNom($usuari_reg);
+            $existing_email = obtenirUsuariPerCorreu($email_reg);
 
             if ($existing_user) {
                 $_SESSION['missatge'] = "El nom d'usuari ja està agafat";
                 $_SESSION['usuari_reg'] = $usuari_reg;
+            } elseif ($existing_email) {
+                    $_SESSION['missatge'] = "Aquest correu ja està registrat";
             } else {
                 // Insertem el nou usuari
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -82,11 +96,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 $_SESSION['missatge_exit'] = "Registrat amb èxit!";
                 $_SESSION['usuari_reg'] = "";
+                $_SESSION['email_reg'] = "";
             }
         }
     }
 
-    header("Location: login.php");
+    header("Location: ../Vistes/login_nou.php");
     exit();
 }
 

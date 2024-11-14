@@ -16,4 +16,12 @@ function inserirUsuari($usuari, $hashed_password) {
     $stmt = $connexio->prepare($sql);
     return $stmt->execute(['usuari' => $usuari, 'password' => $hashed_password]); // Retorna true si l'inserció és exitosa
 }
+
+function obtenirUsuariPerCorreu($email) {
+    $connexio = connectarBD();
+    $sql = "SELECT * FROM usuaris WHERE email = :email";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['email' => $email]);
+    return $stmt->fetch(); // Retorna l'usuari si existeix
+}
 ?>

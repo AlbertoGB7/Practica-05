@@ -1,13 +1,3 @@
-<?php
-# Alberto González Benítez, 2n DAW, Pràctica 04 - Inici d'usuaris i registre de sessions
-
-if (isset($_SESSION['usuari'])) {
-    $usuari = $_SESSION['usuari'];
-} else {
-    $usuari = "Invitat";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -17,39 +7,35 @@ if (isset($_SESSION['usuari'])) {
     <link rel="stylesheet" type="text/css" href="../CSS/estils.css">
 </head>
 <body>
-<section class="vh-100" style="background-image: url('../Imatges/wallpaper1.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;">
+<section class="fons_registre">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card card-blur shadow-2-strong text-white" style="border-radius: 2rem;">
-          <div class="card-body p-4 text-center">
-              <h3 class="mb-3">Registre</h3>
+        <div class="card card-blur shadow-2-strong text-white">
+          <div class="card-body p-5 text-center">
+              <h3 class="mb-5">Registre</h3>
 
-              <form method="POST" action="login_controlador.php">
+              <form method="POST" action="../Login/login_controlador.php">
                   <input type="hidden" name="accion" value="registro"> <!-- Añadir acción para el controlador -->
                   
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-4">
                       <label class="form-label" for="typeUsuari">Usuari</label>
-                      <input type="text" id="typeUsuari" name="usuari_reg" class="form-control form-control-sm bg-dark text-white" required />
+                      <input type="text" id="typeUsuari" name="usuari_reg" class="form-control form-control-sm bg-dark text-white" />
                   </div>
 
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-4">
                       <label class="form-label" for="typeEmail">Correu</label>
-                      <input type="email" id="typeEmail" name="email" class="form-control form-control-sm bg-dark text-white" required />
+                      <input type="email" id="typeEmail" name="email" class="form-control form-control-sm bg-dark text-white" />
                   </div>
 
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-4">
                       <label class="form-label" for="typePassword">Password</label>
-                      <input type="password" id="typePassword" name="pass" class="form-control form-control-sm bg-dark text-white" required />
+                      <input type="password" id="typePassword" name="pass" class="form-control form-control-sm bg-dark text-white" />
                   </div>
 
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-4">
                       <label class="form-label" for="typeConfirmPassword">Confirmar Password</label>
-                      <input type="password" id="typeConfirmPassword" name="confirm_pass" class="form-control form-control-sm bg-dark text-white" required />
+                      <input type="password" id="typeConfirmPassword" name="confirm_pass" class="form-control form-control-sm bg-dark text-white" />
                   </div>
 
                   <button class="btn btn-primary btn-sm btn-block mt-3" type="submit">Registrarse</button>

@@ -1,9 +1,30 @@
 /* # Alberto González Benítez, 2n DAW, Pràctica 04 - Inici d'usuaris i registre de sessions */
 
 body {
-    background: #6868AC;
-    text-align: center;
+  background-color: #6868AC;
+  text-align: center;
 }
+
+.fons_login {
+  background-image: url('../Imatges/wallpaper2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  background-color: transparent;
+}
+
+.fons_registre {
+  background-image: url('../Imatges/wallpaper1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  background-color: transparent;
+}
+
 
 h1 {
     background-color: rgb(223, 140, 229);
