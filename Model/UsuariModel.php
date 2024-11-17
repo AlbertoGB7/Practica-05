@@ -24,4 +24,11 @@ function obtenirUsuariPerCorreu($email) {
     $stmt->execute(['email' => $email]);
     return $stmt->fetch(); // Retorna l'usuari si existeix
 }
+
+function actualitzarContrasenya($usuari, $novaContrasenyaHashed) {
+    $connexio = connectarBD();
+    $sql = "UPDATE usuaris SET contrasenya = :novaContrasenya WHERE usuari = :usuari";
+    $stmt = $connexio->prepare($sql);
+    return $stmt->execute(['novaContrasenya' => $novaContrasenyaHashed, 'usuari' => $usuari]);
+}
 ?>

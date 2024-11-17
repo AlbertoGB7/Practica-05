@@ -25,6 +25,37 @@ body {
   background-color: transparent;
 }
 
+.fons_canvi_pass {
+  background-image: url('../Imatges/clash_login.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  background-color: transparent;
+}
+
+@font-face {
+  font-family: 'YouBlockhead';
+  src: url('YouBlockhead.ttf') format('truetype');
+}
+
+  .lletra_canvi_pass {
+    font-family: 'YouBlockhead', sans-serif;
+    color: #FF4500; /* Naranja brillante que destaca bien en fondos claros */
+    font-size: 1.5rem; /* Ajusta el tamaño según necesidad */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para mayor legibilidad */
+  }
+
+  .titol_canvi_pass {
+    font-family: 'YouBlockhead', sans-serif;
+    color: #b31e1e; /* Naranja brillante que destaca bien en fondos claros */
+    font-size: 2rem; /* Ajusta el tamaño según necesidad */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para mayor legibilidad */
+  }
+
 
 h1 {
     background-color: rgb(223, 140, 229);

@@ -45,7 +45,7 @@ if (isset($_SESSION['usuari'])) {
     </button>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Modificar perfil</a></li>
-      <li><a class="dropdown-item" href="#">Canvi de contrasenya</a></li>
+      <li><a class="dropdown-item" href="modificar_contrasenya.php">Canvi de contrasenya</a></li>
       <li><hr class="dropdown-divider"></li>
       <input type="hidden" name="logout" value="1">
       <li><button class="dropdown-item" type="submit">Logout</button></li>
