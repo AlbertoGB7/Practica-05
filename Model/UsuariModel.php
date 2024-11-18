@@ -31,4 +31,5 @@ function actualitzarContrasenya($usuari, $novaContrasenyaHashed) {
     $stmt = $connexio->prepare($sql);
     return $stmt->execute(['novaContrasenya' => $novaContrasenyaHashed, 'usuari' => $usuari]);
 }
+
 ?>

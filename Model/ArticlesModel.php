@@ -88,4 +88,60 @@ function obtenirArticlesPaginatsSU($offset, $articles_per_pagina, $connexio) {
     return $stmt->fetchAll();
 }
 
+// ORDENAR:
+
+// Ordenar Articles:
+
+// Función para obtener artículos ordenados por título ascendente
+function obtenirArticlesOrdenatsPerTitolAsc($offset, $limit, $connexio) {
+    $sql = "SELECT * FROM articles ORDER BY titol ASC LIMIT :offset, :limit";
+    $stmt = $connexio->prepare($sql);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Función para obtener artículos ordenados por título descendente
+function obtenirArticlesOrdenatsPerTitolDesc($offset, $limit, $connexio) {
+    $sql = "SELECT * FROM articles ORDER BY titol DESC LIMIT :offset, :limit";
+    $stmt = $connexio->prepare($sql);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Función para obtener artículos ordenados por fecha ascendente
+function obtenirArticlesOrdenatsPerDataAsc($offset, $limit, $connexio) {
+    $sql = "SELECT * FROM articles ORDER BY data ASC LIMIT :offset, :limit";
+    $stmt = $connexio->prepare($sql);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Función para obtener artículos ordenados por fecha descendente
+function obtenirArticlesOrdenatsPerDataDesc($offset, $limit, $connexio) {
+    $sql = "SELECT * FROM articles ORDER BY data DESC LIMIT :offset, :limit";
+    $stmt = $connexio->prepare($sql);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Funció per buscar articles per títol
+    function buscarArticlesPerTitol($titol, $offset, $articles_per_pagina, $connexio) {
+        $titol = "%$titol%"; // Hacemos que la búsqueda sea más flexible, con '%'
+        $select = $connexio->prepare("SELECT * FROM articles WHERE titol LIKE ? LIMIT ?, ?");
+        $select->bindValue(1, $titol, PDO::PARAM_STR);
+        $select->bindValue(2, $offset, PDO::PARAM_INT);
+        $select->bindValue(3, $articles_per_pagina, PDO::PARAM_INT);
+        $select->execute();
+        return $select->fetchAll(PDO::FETCH_ASSOC);
+    }
+ 
+
 ?>

@@ -563,7 +563,7 @@ main {
     cursor: not-allowed;
 }
 
-
+/* Botó d'articles per pagina */
 
 .box {
     position: fixed;
@@ -596,6 +596,38 @@ main {
     padding: 30px;
   }
 
+  /* Botó d'ordenació d'articles */
+
+.box_ord {
+  position: fixed;
+  bottom: 0%;
+  right: 0px;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.box_ord select {
+  background-color: #05af08;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box_ord:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box_ord select option {
+  padding: 30px;
+}
 
 /* Estil formulari login */
 

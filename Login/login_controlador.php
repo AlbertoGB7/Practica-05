@@ -6,6 +6,8 @@ require_once "../Model/UsuariModel.php"; // Incloem el model d'usuaris
 
 $errors = [];
 $usuari = $password = $confirm_password = "";
+$email_reg = "";
+$usuari_reg = "";
 
 // Verifiquem si s'ha enviat el formulari:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -13,15 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuari = trim($_POST['usuari']);
     $email = trim($_POST['email']);
     $password = trim($_POST['pass']);
+    $recordar = isset($_POST['recordar']); // Verificar si el checkbox "recordar" està activat
 
     if ($accion == 'login') {
         // Processar login
         if (empty($usuari)) {
             $errors[] = "El camp 'Usuari' és obligatori.";
-        }
-        // Verificar que el correu sigui vàlid!!
-        if (empty($email)) {
-            $errors[] = "Introdueix un correu vàlid.";
         }
         if (empty($password)) {
             $errors[] = "El camp 'Contrasenya' és obligatori.";
@@ -39,10 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Autenticació exitosa
                 $_SESSION['usuari'] = $user['usuari'];
                 $_SESSION['user_id'] = $user['id'];
-                $_SESSION['start_time'] = time(); 
 
                 setcookie('login_exitos', '1', time() + 60, '/');
-
                 header("Location: ../Vistes/index_usuari.php");
                 exit();
             } else {
@@ -53,10 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
+
     } elseif ($accion == 'registro') {
         // Processar registre
         $confirm_password = trim($_POST['confirm_pass']);
         $usuari_reg = trim($_POST['usuari_reg']);
+        $email_reg = trim($_POST['email_reg']);
 
         if (empty($usuari_reg)) {
             $errors[] = "El camp 'Usuari' és obligatori.";
@@ -64,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($password)) {
             $errors[] = "El camp 'Contrasenya' és obligatori.";
         }
-        if (empty($email_reg)) {
+        if (empty($email_reg) || !filter_var($email_reg, FILTER_VALIDATE_EMAIL)) {
             $errors[] = "El correu ha de ser vàlid.";
         }
         if ($password !== $confirm_password) {
@@ -80,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['usuari_reg'] = $usuari_reg;
             $_SESSION['email_reg'] = $email_reg;
         } else {
-            // Verifiquem si l'usuari ja existeix
+            // Verifiquem si l'usuari o el correu ja existeixen
             $existing_user = obtenirUsuariPerNom($usuari_reg);
             $existing_email = obtenirUsuariPerCorreu($email_reg);
 
@@ -88,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['missatge'] = "El nom d'usuari ja està agafat";
                 $_SESSION['usuari_reg'] = $usuari_reg;
             } elseif ($existing_email) {
-                    $_SESSION['missatge'] = "Aquest correu ja està registrat";
+                $_SESSION['missatge'] = "Aquest correu ja està registrat";
             } else {
                 // Insertem el nou usuari
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
