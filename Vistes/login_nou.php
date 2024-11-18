@@ -1,3 +1,28 @@
+<?php
+// Iniciar la sesión para mostrar los mensajes de error
+session_start();
+
+$username = isset($_COOKIE['username']) ? $_COOKIE['username'] : '';
+$email = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
+$password = ''; // No rellenamos automáticamente el campo de contraseña
+
+// Verificar si hay un token "remember me" en la cookie
+if (isset($_COOKIE['remember_me_token'])) {
+  // Incluir el modelo de usuarios
+  require_once "../Model/UsuariModel.php";
+
+  // Obtener el usuario utilizando el token
+  $user = obtenirUsuariPerToken($_COOKIE['remember_me_token']);
+
+  // Si el usuario existe, rellenar los campos username y email
+  if ($user) {
+    $username = $user['usuari'];
+    $email = $user['email'];
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -16,14 +41,10 @@
               <h3 class="mb-5">Login</h3>
 
               <?php
-              session_start();
+              // Mostrar mensajes de error o éxito si existen
               if (isset($_SESSION['missatge'])) {
                   echo "<p style='color: red; font-family: \"Calligraffitti\", cursive;'>" . $_SESSION['missatge'] . "</p>";
                   unset($_SESSION['missatge']);
-              }
-              if (isset($_SESSION['missatge_exit'])) {
-                  echo "<p style='color: green; font-family: \"Calligraffitti\", cursive;'>" . $_SESSION['missatge_exit'] . "</p>";
-                  unset($_SESSION['missatge_exit']);
               }
               ?>
 
@@ -32,7 +53,7 @@
                   
                   <div class="form-outline mb-4">
                       <label class="form-label" for="usuari">Usuari</label>
-                      <input type="text" id="usuari" name="usuari" class="form-control form-control-lg bg-dark text-white" value="<?php echo isset($_SESSION['usuari']) ? htmlspecialchars($_SESSION['usuari']) : ''; ?>" />
+                      <input type="text" id="usuari" name="usuari" class="form-control form-control-lg bg-dark text-white" />
                   </div>
 
                   <div class="form-outline mb-4">
@@ -45,10 +66,9 @@
                       <input type="password" id="pass" name="pass" class="form-control form-control-lg bg-dark text-white" />
                   </div>
 
-                  <div class="form-check d-flex justify-content-start mb-4">
-                      <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                      <label class="form-check-label" for="form1Example3"> Recordar contrasenya </label>
-                  </div>
+                  <label>
+                      <input type="checkbox" name="recordar"> Recordar-me
+                  </label>
 
                   <p class="mt-3">Et vols registrar? 
                     <a href="../Vistes/registre_nou.php" class="text-decoration-none text-primary">Registrarse</a>
