@@ -8,6 +8,23 @@ $errors = [];
 $usuari = $password = $confirm_password = "";
 $email_reg = "";
 $usuari_reg = "";
+<<<<<<< HEAD
+=======
+$recordar = false;
+
+if (isset($_COOKIE['remember_me_token'])) {
+    $token = $_COOKIE['remember_me_token'];
+    $user = obtenirUsuariPerToken($token);
+
+    if ($user) {
+        // Login automático exitoso
+        $_SESSION['usuari'] = $user['usuari'];
+        $_SESSION['user_id'] = $user['id'];
+        header("Location: ../Vistes/index_usuari.php");
+        exit();
+    }
+}
+>>>>>>> bea2c1cc839aa0cfc23143c3a7bf625e35b1de06
 
 // Verifiquem si s'ha enviat el formulari:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -38,6 +55,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Autenticació exitosa
                 $_SESSION['usuari'] = $user['usuari'];
                 $_SESSION['user_id'] = $user['id'];
+<<<<<<< HEAD
+=======
+                $_SESSION['start_time'] = time();
+
+                // Configurar cookie para mantener la sesión activa si el usuario vol
+                if ($recordar) {
+                    $token = bin2hex(random_bytes(16)); // Generar un token aleatori
+                    guardarToken($usuari, $token); // Guardar token al model
+                    setcookie('remember_me_token', $token, time() + (60 * 60 * 24 * 7), '/'); // Cookie de 7 días
+                } else {
+                    // Si no se marca la casilla "recordar", borrar la cookie
+                    setcookie('remember_me_token', '', time() - 3600, '/');
+                }
+>>>>>>> bea2c1cc839aa0cfc23143c3a7bf625e35b1de06
 
                 setcookie('login_exitos', '1', time() + 60, '/');
                 header("Location: ../Vistes/index_usuari.php");

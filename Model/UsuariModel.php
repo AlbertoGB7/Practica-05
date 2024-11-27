@@ -32,4 +32,33 @@ function actualitzarContrasenya($usuari, $novaContrasenyaHashed) {
     return $stmt->execute(['novaContrasenya' => $novaContrasenyaHashed, 'usuari' => $usuari]);
 }
 
+<<<<<<< HEAD
+=======
+
+// Part REMEMBER ME:
+function guardarToken($userId, $token) {
+    $connexio = connectarBD();
+    // Eliminamos el token del usuario antes de guardarlo para evitar duplicados
+    eliminarToken($userId);
+    $sql = "UPDATE usuaris SET token_remember = :token, token_remember_expiracio = DATE_ADD(NOW(), INTERVAL 1 MONTH) WHERE id = :id";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['token' => $token, 'id' => $userId]);
+}
+
+function obtenirUsuariPerToken($token) {
+    $connexio = connectarBD();
+    $sql = "SELECT * FROM usuaris WHERE token_remember = :token AND token_remember_expiracio > NOW()";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['token' => $token]);
+    return $stmt->fetch();
+}
+
+function eliminarToken($userId) {
+    $connexio = connectarBD();
+    $sql = "UPDATE usuaris SET token_remember = NULL, token_remember_expiracio = NULL WHERE id = :id";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['id' => $userId]);
+}
+
+>>>>>>> bea2c1cc839aa0cfc23143c3a7bf625e35b1de06
 ?>

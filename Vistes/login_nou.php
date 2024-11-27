@@ -1,3 +1,28 @@
+<?php
+// Iniciar la sesión para mostrar los mensajes de error
+session_start();
+
+$username = isset($_COOKIE['username']) ? $_COOKIE['username'] : '';
+$email = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
+$password = ''; // No rellenamos automáticamente el campo de contraseña
+
+// Verificar si hay un token "remember me" en la cookie
+if (isset($_COOKIE['remember_me_token'])) {
+  // Incluir el modelo de usuarios
+  require_once "../Model/UsuariModel.php";
+
+  // Obtener el usuario utilizando el token
+  $user = obtenirUsuariPerToken($_COOKIE['remember_me_token']);
+
+  // Si el usuario existe, rellenar los campos username y email
+  if ($user) {
+    $username = $user['usuari'];
+    $email = $user['email'];
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>
