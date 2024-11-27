@@ -32,8 +32,6 @@ function actualitzarContrasenya($usuari, $novaContrasenyaHashed) {
     return $stmt->execute(['novaContrasenya' => $novaContrasenyaHashed, 'usuari' => $usuari]);
 }
 
-<<<<<<< HEAD
-=======
 
 // Part REMEMBER ME:
 function guardarToken($userId, $token) {
@@ -60,5 +58,4 @@ function eliminarToken($userId) {
     $stmt->execute(['id' => $userId]);
 }
 
->>>>>>> bea2c1cc839aa0cfc23143c3a7bf625e35b1de06
 ?>

@@ -8,8 +8,6 @@ $errors = [];
 $usuari = $password = $confirm_password = "";
 $email_reg = "";
 $usuari_reg = "";
-<<<<<<< HEAD
-=======
 $recordar = false;
 
 if (isset($_COOKIE['remember_me_token'])) {
@@ -24,7 +22,6 @@ if (isset($_COOKIE['remember_me_token'])) {
         exit();
     }
 }
->>>>>>> bea2c1cc839aa0cfc23143c3a7bf625e35b1de06
 
 // Verifiquem si s'ha enviat el formulari:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,6 +30,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email']);
     $password = trim($_POST['pass']);
     $recordar = isset($_POST['recordar']); // Verificar si el checkbox "recordar" està activat
+
+
+    // Verificar si el reCAPTCHA es necesario
+    if (isset($_SESSION['intentos_fallidos']) && $_SESSION['intentos_fallidos'] >= 3) {
+        // Verificar reCAPTCHA solo si los intentos fallidos superan 3
+        if (isset($_POST['g-recaptcha-response'])) {
+            $recaptcha_response = $_POST['g-recaptcha-response'];
+            $recaptcha_secret = '6LfI_IsqAAAAABgjh--FUWx4JxaGfUNrUFX33o4z'; // Clave secreta de reCAPTCHA
+    
+            // Verificar el reCAPTCHA con la API de Google
+            $recaptcha_verify_url = 'https://www.google.com/recaptcha/api/siteverify';
+            $response = file_get_contents($recaptcha_verify_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+            $response_keys = json_decode($response, true);
+    
+            if (intval($response_keys["success"]) !== 1) {
+                $_SESSION['missatge'] = "Si us plau, verifica que no ets un robot.";
+                header("Location: ../Vistes/login_nou.php");
+                exit();
+            }
+        }
+    }
 
     if ($accion == 'login') {
         // Processar login
@@ -47,6 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['missatge'] = implode("<br>", $errors);
             $_SESSION['usuari'] = $usuari;
             $_SESSION['email'] = $email;
+
+            $_SESSION['intentos_fallidos'] = isset($_SESSION['intentos_fallidos']) ? $_SESSION['intentos_fallidos'] + 1 : 1;
         } else {
             // Verificar que l'usuari existeix
             $user = obtenirUsuariPerNom($usuari); // Fem servir la funció del model
@@ -55,9 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Autenticació exitosa
                 $_SESSION['usuari'] = $user['usuari'];
                 $_SESSION['user_id'] = $user['id'];
-<<<<<<< HEAD
-=======
                 $_SESSION['start_time'] = time();
+                $_SESSION['intentos_fallidos'] = 0; // Resetear intentos fallidos
+                header("Location: ../Vistes/index_usuari.php");
+                exit();
 
                 // Configurar cookie para mantener la sesión activa si el usuario vol
                 if ($recordar) {
@@ -68,7 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     // Si no se marca la casilla "recordar", borrar la cookie
                     setcookie('remember_me_token', '', time() - 3600, '/');
                 }
->>>>>>> bea2c1cc839aa0cfc23143c3a7bf625e35b1de06
 
                 setcookie('login_exitos', '1', time() + 60, '/');
                 header("Location: ../Vistes/index_usuari.php");
@@ -78,6 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['missatge'] = "Usuari o contrasenya incorrectes";
                 $_SESSION['usuari'] = $usuari;
                 $_SESSION['email'] = $email;
+
+                $_SESSION['intentos_fallidos'] = isset($_SESSION['intentos_fallidos']) ? $_SESSION['intentos_fallidos'] + 1 : 1;
             }
         }
 

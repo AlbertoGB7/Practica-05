@@ -26,6 +26,7 @@ if (isset($_COOKIE['remember_me_token'])) {
 <!DOCTYPE html>
 <html lang="ca">
 <head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -74,7 +75,11 @@ if (isset($_COOKIE['remember_me_token'])) {
                     <a href="../Vistes/registre_nou.php" class="text-decoration-none text-primary">Registrarse</a>
                   </p>
 
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button><br>
+
+                  <?php if (isset($_SESSION['intentos_fallidos']) && $_SESSION['intentos_fallidos'] >= 3): ?>
+                    <div class="g-recaptcha" data-sitekey="6LfI_IsqAAAAAI6klpIc6PmZ6iIOHqG-xflHDVNt"></div>
+                  <?php endif; ?>
 
                   <hr class="my-4">
 
@@ -87,6 +92,7 @@ if (isset($_COOKIE['remember_me_token'])) {
                       <img src="../Imatges/facebookF.svg.png" alt="Facebook" style="width: 20px; height: 20px; margin-right: 10px; vertical-align: middle;">
                       Sign in amb Facebook
                   </button>
+
               </form>
           </div>
         </div>
