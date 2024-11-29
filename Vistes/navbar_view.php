@@ -1,6 +1,6 @@
 <?php
 # Alberto González Benítez, 2n DAW, Pràctica 04 - Inici d'usuaris i registre de sessions
-
+require_once '../Model/UsuariModel.php';
 if (isset($_SESSION['usuari'])) {
     $usuari = $_SESSION['usuari'];
 } else {
@@ -24,7 +24,12 @@ if (isset($_SESSION['usuari'])) {
     <nav class="navbar bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand">
-      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Logout" width="30" height="30">
+      <?php 
+      $usuari = $_SESSION['usuari'];
+      $dadesUsuari = obtenirUsuariPerNom($usuari);
+      $imatgePerfil = $dadesUsuari['imatge'] ?? '../Imatges/def_user.jpeg';
+      ?>
+      <img src="<?= htmlspecialchars($imatgePerfil) ?>" alt="Avatar" class="rounded-circle" width="50" height="50">
     </a>
   </div>
   </nav>
@@ -44,7 +49,7 @@ if (isset($_SESSION['usuari'])) {
     <?php echo htmlspecialchars($usuari); ?>
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Modificar perfil</a></li>
+      <li><a class="dropdown-item" href="modificar_perfil.php">Modificar perfil</a></li>
       <li><a class="dropdown-item" href="modificar_contrasenya.php">Canvi de contrasenya</a></li>
       <li><hr class="dropdown-divider"></li>
       <input type="hidden" name="logout" value="1">

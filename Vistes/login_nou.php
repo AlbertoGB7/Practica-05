@@ -75,11 +75,18 @@ if (isset($_COOKIE['remember_me_token'])) {
                     <a href="../Vistes/registre_nou.php" class="text-decoration-none text-primary">Registrarse</a>
                   </p>
 
+                  <p class="mt-3">Has oblidat la contrasenya?
+                    <a href="../Vistes/restablir_contrasenya.php" class="text-decoration-none text-primary">Restablir contrasenya</a>
+                  </p>
+
+                  <div class="recaptcha-container">
+                    <div class="g-recaptcha" data-sitekey="6LfI_IsqAAAAAI6klpIc6PmZ6iIOHqG-xflHDVNt"></div>
+                  </div>
+
+
                   <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button><br>
 
-                  <?php if (isset($_SESSION['intentos_fallidos']) && $_SESSION['intentos_fallidos'] >= 3): ?>
-                    <div class="g-recaptcha" data-sitekey="6LfI_IsqAAAAAI6klpIc6PmZ6iIOHqG-xflHDVNt"></div>
-                  <?php endif; ?>
+          
 
                   <hr class="my-4">
 

@@ -58,4 +58,33 @@ function eliminarToken($userId) {
     $stmt->execute(['id' => $userId]);
 }
 
+function actualitzarNomUsuari($usuariActual, $nouNom) {
+    $connexio = connectarBD();
+    $sql = "UPDATE usuaris SET usuari = :nouNom WHERE usuari = :usuariActual";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['nouNom' => $nouNom, 'usuariActual' => $usuariActual]);
+}
+
+function actualitzarImatgeUsuari($usuari, $novaImatge) {
+    $connexio = connectarBD();
+    $sql = "UPDATE usuaris SET imatge = :novaImatge WHERE usuari = :usuari";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['novaImatge' => $novaImatge, 'usuari' => $usuari]);
+}
+
+function buscarUsuariPerCorreu($correu) {
+    $connexio = connectarBD();
+    $sql = "SELECT * FROM usuaris WHERE correo = :correu";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['correu' => $correu]);
+    return $stmt->fetch(); // Retorna l'usuari si existeix
+}
+
+function guardarTokenRecuperacio($usuariId, $token) {
+    $connexio = connectarBD();
+    $sql = "UPDATE usuaris SET token_recuperacion = :token, token_expiracio_restablir = DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE id = :usuariId";
+    $stmt = $connexio->prepare($sql);
+    return $stmt->execute(['token' => $token, 'usuariId' => $usuariId]); // Retorna true si l'actualització és exitosa
+}
+
 ?>

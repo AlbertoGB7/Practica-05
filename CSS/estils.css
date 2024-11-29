@@ -753,3 +753,17 @@ main {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
 }
+
+
+/* Estils Re-Captcha*/
+
+.recaptcha-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; /* Ajusta el espacio superior e inferior */
+}
+
+.g-recaptcha {
+  transform: scale(1); /* Opcional: ajusta el tamaño del reCAPTCHA */
+  transform-origin: center;
+}
