@@ -24,9 +24,9 @@
                   </div>
 
                   <div class="form-outline mb-4">
-                      <label class="form-label" for="typeEmail">Correu</label>
-                      <input type="email" id="typeEmail" name="email" class="form-control form-control-sm bg-dark text-white" />
-                  </div>
+                    <label class="form-label" for="typeEmail">Correu</label>
+                    <input type="email" id="typeEmail" name="email_reg" class="form-control form-control-sm bg-dark text-white" />
+                </div>
 
                   <div class="form-outline mb-4">
                       <label class="form-label" for="typePassword">Password</label>

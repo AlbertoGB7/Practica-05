@@ -12,14 +12,18 @@ $recordar = false;
 
 if (isset($_COOKIE['remember_me_token'])) {
     $token = $_COOKIE['remember_me_token'];
-    $user = obtenirUsuariPerToken($token);
+    $user = obtenirUsuariPerToken($token); // Verifica el token en la base de datos
 
     if ($user) {
         // Login automático exitoso
         $_SESSION['usuari'] = $user['usuari'];
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['start_time'] = time();
         header("Location: ../Vistes/index_usuari.php");
         exit();
+    } else {
+        // El token es inválido o ha expirado
+        setcookie('remember_me_token', '', time() - 3600, '/');
     }
 }
 
@@ -28,6 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $accion = $_POST['accion']; // Obtenim l'acció (login o registre)
     $usuari = trim($_POST['usuari']);
     $email = trim($_POST['email']);
+
+    $usuari_reg = trim($_POST['usuari_reg']);
+    $email_reg = trim($_POST['email_reg']);
+
     $password = trim($_POST['pass']);
     $recordar = isset($_POST['recordar']); // Verificar si el checkbox "recordar" està activat
 
@@ -72,25 +80,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = obtenirUsuariPerNom($usuari); // Fem servir la funció del model
 
             if ($user && password_verify($password, $user['contrasenya'])) {
-                // Autenticació exitosa
+                // Autenticación exitosa
                 $_SESSION['usuari'] = $user['usuari'];
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['start_time'] = time();
-                $_SESSION['intentos_fallidos'] = 0; // Resetear intentos fallidos
-                header("Location: ../Vistes/index_usuari.php");
-                exit();
-
-                // Configurar cookie para mantener la sesión activa si el usuario vol
+                $_SESSION['intentos_fallidos'] = 0;
+            
+                // Configurar cookie para mantener la sesión activa si el usuario lo desea
                 if ($recordar) {
-                    $token = bin2hex(random_bytes(16)); // Generar un token aleatori
-                    guardarToken($usuari, $token); // Guardar token al model
-                    setcookie('remember_me_token', $token, time() + (60 * 60 * 24 * 7), '/'); // Cookie de 7 días
+                    // Generar y guardar el token en la base de datos
+                    $token = bin2hex(random_bytes(32));
+                    $expiracio = date('Y-m-d H:i:s', time() + (7 * 24 * 60 * 60)); // Token válido por 7 días
+                    guardarToken($user['id'], $token, $expiracio);
+                    setcookie('remember_me_token', $token, time() + (7 * 24 * 60 * 60), '/'); // Configurar la cookie
                 } else {
-                    // Si no se marca la casilla "recordar", borrar la cookie
-                    setcookie('remember_me_token', '', time() - 3600, '/');
+                    setcookie('remember_me_token', '', time() - 3600, '/'); // Eliminar cookie si no se marca recordar
                 }
-
-                setcookie('login_exitos', '1', time() + 60, '/');
+            
                 header("Location: ../Vistes/index_usuari.php");
                 exit();
             } else {
@@ -144,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 // Insertem el nou usuari
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                inserirUsuari($usuari_reg, $hashed_password); // Funció del model
+                inserirUsuari($usuari_reg, $hashed_password, $email_reg); // Funció del model
 
                 $_SESSION['missatge_exit'] = "Registrat amb èxit!";
                 $_SESSION['usuari_reg'] = "";

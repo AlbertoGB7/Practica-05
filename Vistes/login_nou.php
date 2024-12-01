@@ -1,27 +1,7 @@
 <?php
-// Iniciar la sesión para mostrar los mensajes de error
 session_start();
-
-$username = isset($_COOKIE['username']) ? $_COOKIE['username'] : '';
-$email = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
-$password = ''; // No rellenamos automáticamente el campo de contraseña
-
-// Verificar si hay un token "remember me" en la cookie
-if (isset($_COOKIE['remember_me_token'])) {
-  // Incluir el modelo de usuarios
-  require_once "../Model/UsuariModel.php";
-
-  // Obtener el usuario utilizando el token
-  $user = obtenirUsuariPerToken($_COOKIE['remember_me_token']);
-
-  // Si el usuario existe, rellenar los campos username y email
-  if ($user) {
-    $username = $user['usuari'];
-    $email = $user['email'];
-  }
-}
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ca">
@@ -76,12 +56,14 @@ if (isset($_COOKIE['remember_me_token'])) {
                   </p>
 
                   <p class="mt-3">Has oblidat la contrasenya?
-                    <a href="../Vistes/restablir_contrasenya.php" class="text-decoration-none text-primary">Restablir contrasenya</a>
+                    <a href="../Vistes/enviar_correu.php" class="text-decoration-none text-primary">Restablir contrasenya</a>
                   </p>
 
+                  <?php if (isset($_SESSION['intentos_fallidos']) && $_SESSION['intentos_fallidos'] >= 3): ?>
                   <div class="recaptcha-container">
                     <div class="g-recaptcha" data-sitekey="6LfI_IsqAAAAAI6klpIc6PmZ6iIOHqG-xflHDVNt"></div>
                   </div>
+                  <?php endif; ?>
 
 
                   <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button><br>
