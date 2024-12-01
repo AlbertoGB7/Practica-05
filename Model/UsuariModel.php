@@ -127,4 +127,28 @@ function obtenirUsuariPerToken($token) {
     return $stmt->fetch(); // Retorna el usuario si el token es válido
 }
 
+// PART ADMINISTRADOR
+
+function obtenirTotsElsUsuaris() {
+    $connexio = connectarBD();
+    $sql = "SELECT id, usuari, correo, rol FROM usuaris";
+    $stmt = $connexio->query($sql);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function eliminarArticlesDeUsuari($id_usuari) {
+    $connexio = connectarBD();
+    $sql = "DELETE FROM articles WHERE usuari_id = :id_usuari";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['id_usuari' => $id_usuari]);
+}
+
+function eliminarUsuari($id) {
+    $connexio = connectarBD();
+    $sql = "DELETE FROM usuaris WHERE id = :id";
+    $stmt = $connexio->prepare($sql);
+    $stmt->execute(['id' => $id]);
+}
+
+
 ?>

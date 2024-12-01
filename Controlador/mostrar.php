@@ -23,25 +23,6 @@ if ($pagina_actual < 1) {
 }
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    var_dump($_POST);  // Esto debería mostrar algo como: array(1) { ["titol"]=> string(4) "test" }
-}
-
-// Obtenir el paràmetre de cerca
-
-$titol_buscar = isset($_GET['buscar']) ? trim($_GET['buscar']) : '';
-
-
-// Si s'ha fet una cerca, obtenim els articles segons el títol
-if (!empty($titol_buscar)) {
-    $offset = ($pagina_actual - 1) * $articles_per_pagina;
-    $resultats = buscarArticlesPerTitol($titol_buscar, $offset, $articles_per_pagina, $connexio);
-} else {
-    $offset = ($pagina_actual - 1) * $articles_per_pagina;
-    $resultats = obtenirArticlesOrdenatsPerDataDesc($offset, $articles_per_pagina, $connexio);
-}
-
-
 // Obtenir el número total d'articles
 $total_articles = obtenirTotalArticles($connexio);
 $total_pagines = ceil($total_articles / $articles_per_pagina);
@@ -165,11 +146,6 @@ function mostrarPaginacio($pagina_actual, $total_pagines, $articles_per_pagina, 
     <a href='../index.php'>
         <button class="tornar_mostrar" role="button">Anar enrere</button>
     </a>
-
-    <form method="GET" action="mostrar.php">
-        <input type="text" id="buscar" name="buscar" placeholder="Buscar por título" value="<?php echo htmlspecialchars(isset($_GET['buscar']) ? $_GET['buscar'] : ''); ?>">
-        <button type="submit">Buscar</button>
-    </form>
 
     <br>
     

@@ -31,6 +31,16 @@ if (isset($_SESSION['usuari'])) {
             <input type="submit" value="Mostrar articles" class="boto" name="select" formaction="../Controlador/mostrar_usuari.php">
             <input type="submit" value="Modificar article" class="boto" name="modificar" formaction="../Vistes/modificar.php">
             <input type="submit" value="Eliminar article" class="boto" name="eliminar" formaction="../Vistes/eliminar.php">
+
+            </form> <!-- Cierra el formulario principal -->
+
+            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+                <form method="POST" action="../Vistes/gestionar_usuaris.php" style="display:inline;">
+                    <button type="submit" class="boto">Gestionar Usuaris</button>
+                </form>
+            <?php endif; ?>
+
+
         </h2>
     </form>
 

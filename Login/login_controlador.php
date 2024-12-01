@@ -19,6 +19,8 @@ if (isset($_COOKIE['remember_me_token'])) {
         $_SESSION['usuari'] = $user['usuari'];
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['start_time'] = time();
+        $_SESSION['rol'] = $user['rol'];
+
         header("Location: ../Vistes/index_usuari.php");
         exit();
     } else {
@@ -85,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['start_time'] = time();
                 $_SESSION['intentos_fallidos'] = 0;
+                $_SESSION['rol'] = $user['rol'];
             
                 // Configurar cookie para mantener la sesión activa si el usuario lo desea
                 if ($recordar) {
