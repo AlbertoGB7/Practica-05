@@ -1,64 +1,82 @@
 <?php 
-# Alberto González Benítez, 2n DAW, Pràctica 04 - Inici d'usuaris i registre de sessions
 require_once "../Model/ArticlesModel.php";
 require_once "../Model/connexio.php";
 
 // Obtenim la connexió a la base de dades
 $connexio = connectarBD();
 
-// Número d'articles per pàgines
+// Variables inicials
+$terme_cerca = isset($_GET['terme']) ? trim($_GET['terme']) : '';
+$orden = isset($_GET['orden']) ? $_GET['orden'] : 'data_desc';
 $articles_per_pagina = isset($_GET['articles_per_pagina']) ? (int)$_GET['articles_per_pagina'] : 5;
 
-// Comprova si hi ha una pàgina especificada, sino, 1:
+// Página actual
 if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
-    $pagina_actual = (int) $_GET['pagina'];
+    $pagina_actual = (int)$_GET['pagina'];
 } else {
     $pagina_actual = 1;
 }
 
-// Si intenten possar una pàgina que sigui més petita que 1, (com 0), redirigeix a la pàgina 1
+// Si intenten posar una pàgina inferior a 1, redirigeix
 if ($pagina_actual < 1) {
     header("Location: ?pagina=1");
     exit();
 }
 
+// Variables per als resultats i la paginació
+$resultats = [];
+$total_articles = 0;
+$total_pagines = 0;
 
-// Obtenir el número total d'articles
-$total_articles = obtenirTotalArticles($connexio);
-$total_pagines = ceil($total_articles / $articles_per_pagina);
+if ($terme_cerca !== '') {
+    // Cerca articles pel terme
+    $resultats_totals = cercarArticles($terme_cerca, $connexio);
+    $total_articles = count($resultats_totals);
 
-// Si intenten possar una pàgina que sigui més gran al número total de pàgines, redirigeix a la pàgina 1
-if ($pagina_actual > $total_pagines && $total_pagines > 0) {
-    header("Location: ?pagina=1");
-    exit();
-}
+    // Ordenació dels resultats trobats
+    if ($orden === 'titol_asc') {
+        usort($resultats_totals, fn($a, $b) => strcmp($a['titol'], $b['titol']));
+    } elseif ($orden === 'titol_desc') {
+        usort($resultats_totals, fn($a, $b) => strcmp($b['titol'], $a['titol']));
+    } elseif ($orden === 'data_asc') {
+        usort($resultats_totals, fn($a, $b) => strcmp($a['data'], $b['data']));
+    } else { // data_desc
+        usort($resultats_totals, fn($a, $b) => strcmp($b['data'], $a['data']));
+    }
 
-// Si intenten possar lletres a la url, redirigeix a la pàgina 1
-if (!isset($_GET['pagina']) || !is_numeric($_GET['pagina']) || $_GET['pagina'] < 1) {
-    header("Location: ?pagina=1");
-    exit();
-}
+    // Paginació dels resultats
+    $total_pagines = ceil($total_articles / $articles_per_pagina);
+    $offset = ($pagina_actual - 1) * $articles_per_pagina;
+    $resultats = array_slice($resultats_totals, $offset, $articles_per_pagina);
+} else {
+    // Obtenir el número total d'articles
+    $total_articles = obtenirTotalArticles($connexio);
+    $total_pagines = ceil($total_articles / $articles_per_pagina);
 
-// Es per calcular els articles per pàgines
-$offset = ($pagina_actual - 1) * $articles_per_pagina;
+    // Si intenten posar una pàgina superior al total, redirigeix
+    if ($pagina_actual > $total_pagines && $total_pagines > 0) {
+        header("Location: ?pagina=1");
+        exit();
+    }
 
-// Obtenir el paràmetre d'ordenació
-$orden = isset($_GET['orden']) ? $_GET['orden'] : 'data_desc';
+    // Calcula l'offset per a la consulta
+    $offset = ($pagina_actual - 1) * $articles_per_pagina;
 
-// Obtener los artículos según el orden
-switch ($orden) {
-    case 'titol_asc':
-        $resultats = obtenirArticlesOrdenatsPerTitolAsc($offset, $articles_per_pagina, $connexio);
-        break;
-    case 'titol_desc':
-        $resultats = obtenirArticlesOrdenatsPerTitolDesc($offset, $articles_per_pagina, $connexio);
-        break;
-    case 'data_asc':
-        $resultats = obtenirArticlesOrdenatsPerDataAsc($offset, $articles_per_pagina, $connexio);
-        break;
-    default:
-        $resultats = obtenirArticlesOrdenatsPerDataDesc($offset, $articles_per_pagina, $connexio);
-        break;
+    // Obtenir els articles segons l'ordenació
+    switch ($orden) {
+        case 'titol_asc':
+            $resultats = obtenirArticlesOrdenatsPerTitolAsc($offset, $articles_per_pagina, $connexio);
+            break;
+        case 'titol_desc':
+            $resultats = obtenirArticlesOrdenatsPerTitolDesc($offset, $articles_per_pagina, $connexio);
+            break;
+        case 'data_asc':
+            $resultats = obtenirArticlesOrdenatsPerDataAsc($offset, $articles_per_pagina, $connexio);
+            break;
+        default: // data_desc
+            $resultats = obtenirArticlesOrdenatsPerDataDesc($offset, $articles_per_pagina, $connexio);
+            break;
+    }
 }
 
 // Funció per mostrar els articles
@@ -85,21 +103,11 @@ function mostrarTaula($resultats){
 function mostrarPaginacio($pagina_actual, $total_pagines, $articles_per_pagina, $orden) {
     echo "<div class='pagination'>";
 
-    // Botó per anar a la primera pàgina
     if ($pagina_actual > 1) {
         echo "<a href='?pagina=1&articles_per_pagina=$articles_per_pagina&orden=$orden'>&laquo;</a>";
-    } else {
-        echo "<a href='#' class='disabled'>&laquo;</a>";
-    }
-
-    // Botó per anar a la pàgina anterior
-    if ($pagina_actual > 1) {
         echo "<a href='?pagina=" . ($pagina_actual - 1) . "&articles_per_pagina=$articles_per_pagina&orden=$orden'>&lsaquo;</a>";
-    } else {
-        echo "<a href='#' class='disabled'>&lsaquo;</a>";
     }
 
-    // Mostra el número de pàgines
     for ($i = 1; $i <= $total_pagines; $i++) {
         if ($i == $pagina_actual) {
             echo "<a class='active' href='?pagina=$i&articles_per_pagina=$articles_per_pagina&orden=$orden'>$i</a>";
@@ -108,18 +116,9 @@ function mostrarPaginacio($pagina_actual, $total_pagines, $articles_per_pagina, 
         }
     }
 
-    // Botó per anar a la pàgina següent
     if ($pagina_actual < $total_pagines) {
         echo "<a href='?pagina=" . ($pagina_actual + 1) . "&articles_per_pagina=$articles_per_pagina&orden=$orden'>&rsaquo;</a>";
-    } else {
-        echo "<a href='#' class='disabled'>&rsaquo;</a>";
-    }
-
-    // Botó per anar a l'última pàgina
-    if ($pagina_actual < $total_pagines) {
         echo "<a href='?pagina=$total_pagines&articles_per_pagina=$articles_per_pagina&orden=$orden'>&raquo;</a>";
-    } else {
-        echo "<a href='#' class='disabled'>&raquo;</a>";
     }
 
     echo "</div>";
@@ -133,6 +132,7 @@ function mostrarPaginacio($pagina_actual, $total_pagines, $articles_per_pagina, 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../CSS/estils.css">
     <title>Taula d'articles</title>
 </head>
@@ -147,8 +147,18 @@ function mostrarPaginacio($pagina_actual, $total_pagines, $articles_per_pagina, 
         <button class="tornar_mostrar" role="button">Anar enrere</button>
     </a>
 
-    <br>
-    
+
+            <!-- Barra de cerca -->
+            <div class="search-container">
+                <form method="GET" action="" class="search-box">
+                    <input type="hidden" name="pagina" value="1">
+                    <input type="hidden" name="articles_per_pagina" value="<?php echo $articles_per_pagina; ?>">
+                    <input type="text" class="boton-search" name="terme" placeholder="Titol..." value="<?php echo htmlspecialchars($terme_cerca); ?>">
+                    <button type="submit" class="boton-lupa"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+    <br><br>
     <div class="articulos">
         <h2>
             <?php mostrarTaula($resultats); ?>
@@ -156,23 +166,25 @@ function mostrarPaginacio($pagina_actual, $total_pagines, $articles_per_pagina, 
     </div>
 
     <!-- Paginació -->
-    <?php mostrarPaginacio($pagina_actual, $total_pagines, $articles_per_pagina, $orden); ?>
+    <?php if ($total_articles > 0) mostrarPaginacio($pagina_actual, $total_pagines, $articles_per_pagina, $orden); ?>
 
     <div class="box">
-        <select id="articles" onchange="location = this.value;">
-            <option value="?pagina=<?php echo $pagina_actual; ?>&articles_per_pagina=5&orden=<?php echo $orden; ?>" <?php echo ($articles_per_pagina == 5) ? 'selected' : ''; ?>>5 articles</option>
-            <option value="?pagina=<?php echo $pagina_actual; ?>&articles_per_pagina=10&orden=<?php echo $orden; ?>" <?php echo ($articles_per_pagina == 10) ? 'selected' : ''; ?>>10 articles</option>
-            <option value="?pagina=<?php echo $pagina_actual; ?>&articles_per_pagina=15&orden=<?php echo $orden; ?>" <?php echo ($articles_per_pagina == 15) ? 'selected' : ''; ?>>15 articles</option>
-        </select>
-    </div>
+    <select id="articles" onchange="location = this.value;">
+        <option value="?pagina=<?php echo $pagina_actual; ?>&articles_per_pagina=5&orden=<?php echo $orden; ?>&terme=<?php echo urlencode($terme_cerca); ?>" <?php echo ($articles_per_pagina == 5) ? 'selected' : ''; ?>>5 articles</option>
+        <option value="?pagina=<?php echo $pagina_actual; ?>&articles_per_pagina=10&orden=<?php echo $orden; ?>&terme=<?php echo urlencode($terme_cerca); ?>" <?php echo ($articles_per_pagina == 10) ? 'selected' : ''; ?>>10 articles</option>
+        <option value="?pagina=<?php echo $pagina_actual; ?>&articles_per_pagina=15&orden=<?php echo $orden; ?>&terme=<?php echo urlencode($terme_cerca); ?>" <?php echo ($articles_per_pagina == 15) ? 'selected' : ''; ?>>15 articles</option>
+    </select>
+</div>
 
-    <div class="box_ord">
-        <select id="articles" onchange="location = this.value;">
-            <option value="?pagina=1&articles_per_pagina=<?php echo $articles_per_pagina; ?>&orden=data_desc" <?php echo ($orden === 'data_desc') ? 'selected' : ''; ?>>Data (DESC)</option>
-            <option value="?pagina=1&articles_per_pagina=<?php echo $articles_per_pagina; ?>&orden=data_asc" <?php echo ($orden === 'data_asc') ? 'selected' : ''; ?>>Data (ASC)</option>
-            <option value="?pagina=1&articles_per_pagina=<?php echo $articles_per_pagina; ?>&orden=titol_desc" <?php echo ($orden === 'titol_desc') ? 'selected' : ''; ?>>Alfabèticament (DESC)</option>
-            <option value="?pagina=1&articles_per_pagina=<?php echo $articles_per_pagina; ?>&orden=titol_asc" <?php echo ($orden === 'titol_asc') ? 'selected' : ''; ?>>Alfabèticament (ASC)</option>
-        </select>
-    </div>
-</body> 
+<div class="box_ord">
+    <select id="articles" onchange="location = this.value;">
+        <option value="?pagina=1&articles_per_pagina=<?php echo $articles_per_pagina; ?>&orden=data_desc&terme=<?php echo urlencode($terme_cerca); ?>" <?php echo ($orden === 'data_desc') ? 'selected' : ''; ?>>Data (DESC)</option>
+        <option value="?pagina=1&articles_per_pagina=<?php echo $articles_per_pagina; ?>&orden=data_asc&terme=<?php echo urlencode($terme_cerca); ?>" <?php echo ($orden === 'data_asc') ? 'selected' : ''; ?>>Data (ASC)</option>
+        <option value="?pagina=1&articles_per_pagina=<?php echo $articles_per_pagina; ?>&orden=titol_desc&terme=<?php echo urlencode($terme_cerca); ?>" <?php echo ($orden === 'titol_desc') ? 'selected' : ''; ?>>Alfabèticament (DESC)</option>
+        <option value="?pagina=1&articles_per_pagina=<?php echo $articles_per_pagina; ?>&orden=titol_asc&terme=<?php echo urlencode($terme_cerca); ?>" <?php echo ($orden === 'titol_asc') ? 'selected' : ''; ?>>Alfabèticament (ASC)</option>
+    </select>
+</div>
+
+
+</body>
 </html>

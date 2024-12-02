@@ -132,16 +132,40 @@ function obtenirArticlesOrdenatsPerDataDesc($offset, $limit, $connexio) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// Funció per buscar articles per títol
-    function buscarArticlesPerTitol($titol, $offset, $articles_per_pagina, $connexio) {
-        $titol = "%$titol%"; // Hacemos que la búsqueda sea más flexible, con '%'
-        $select = $connexio->prepare("SELECT * FROM articles WHERE titol LIKE ? LIMIT ?, ?");
-        $select->bindValue(1, $titol, PDO::PARAM_STR);
-        $select->bindValue(2, $offset, PDO::PARAM_INT);
-        $select->bindValue(3, $articles_per_pagina, PDO::PARAM_INT);
-        $select->execute();
-        return $select->fetchAll(PDO::FETCH_ASSOC);
-    }
- 
+function cercarArticles($terme, $connexio) {
+    $sql = "SELECT * FROM articles WHERE titol LIKE :terme";
+    $stmt = $connexio->prepare($sql);
+    $stmt->bindValue(':terme', '%' . $terme . '%', PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function obtenirTotalArticlesUsuariCercar($usuari_id, $terme, $connexio) {
+    $sql = "SELECT COUNT(*) 
+            FROM articles 
+            WHERE usuari_id = :usuari_id 
+              AND (titol LIKE :terme)";
+    $stmt = $connexio->prepare($sql);
+    $stmt->bindValue(':usuari_id', $usuari_id, PDO::PARAM_INT);
+    $stmt->bindValue(':terme', '%' . $terme . '%', PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+// Función para obtener artículos paginados de un usuario según un término de búsqueda
+function obtenirArticlesPaginatsCercar($usuari_id, $offset, $articles_per_pagina, $terme, $connexio) {
+    $sql = "SELECT * 
+            FROM articles 
+            WHERE usuari_id = :usuari_id 
+              AND (titol LIKE :terme) 
+            LIMIT :offset, :articles_per_pagina";
+    $stmt = $connexio->prepare($sql);
+    $stmt->bindValue(':usuari_id', $usuari_id, PDO::PARAM_INT);
+    $stmt->bindValue(':terme', '%' . $terme . '%', PDO::PARAM_STR);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->bindValue(':articles_per_pagina', $articles_per_pagina, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 ?>
