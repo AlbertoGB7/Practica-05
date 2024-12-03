@@ -78,9 +78,11 @@ session_start();
                 </button>
 
 
-                <button class="login-with-facebook-btn" type="button">
+                <!-- Botón para iniciar sesión con GitHub -->
+                <a href="../Controlador/hyb_aut.php" class="login-with-github-btn" type="button">
                     Entrar amb GitHub
-                </button>
+                </a>
+
 
               </form>
           </div>

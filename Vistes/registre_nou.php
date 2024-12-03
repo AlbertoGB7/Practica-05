@@ -46,13 +46,6 @@
 
                   <hr class="my-3 text-white">
 
-                  <button class="login-with-google-btn" type="button">
-                      Sign in amb Google
-                  </button>
-
-                  <button class="login-with-facebook-btn" type="button">
-                      Sign in amb Facebook
-                  </button>
               </form>
           </div>
         </div>
