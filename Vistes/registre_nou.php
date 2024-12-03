@@ -46,14 +46,12 @@
 
                   <hr class="my-3 text-white">
 
-                  <button class="btn btn-sm btn-block" style="background-color: #dd4b39; color: white;" type="button">
-                      <img src="../Imatges/googleG.svg.png" alt="Google" style="width: 20px; height: 20px; margin-right: 10px; vertical-align: middle;">
-                      Sign in with Google
+                  <button class="login-with-google-btn" type="button">
+                      Sign in amb Google
                   </button>
 
-                  <button class="btn btn-sm btn-block mb-2" style="background-color: #3b5998; color: white;" type="button">
-                      <img src="../Imatges/facebookF.svg.png" alt="Facebook" style="width: 20px; height: 20px; margin-right: 10px; vertical-align: middle;">
-                      Sign in with Facebook
+                  <button class="login-with-facebook-btn" type="button">
+                      Sign in amb Facebook
                   </button>
               </form>
           </div>

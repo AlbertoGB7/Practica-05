@@ -16,6 +16,7 @@ $usuaris = obtenirTotsElsUsuaris(); // Recuperar tots els usuaris de la BD
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../CSS/estils.css">
     <title>Gestionar Usuaris</title>
 </head>
 <body>
@@ -49,5 +50,12 @@ $usuaris = obtenirTotsElsUsuaris(); // Recuperar tots els usuaris de la BD
         </tbody>
     </table>
 </div>
+
+        <div>
+            <a href="../Vistes/index_usuari.php">
+                <button type="button" class="tornar" role="button">Anar enrere</button>
+            </a>
+        </div>
+
 </body>
 </html>

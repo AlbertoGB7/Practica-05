@@ -10,7 +10,7 @@ function obtenirUsuariPerNom($usuari) {
     return $stmt->fetch(); // Retorna l'usuari si existeix
 }
 
-function inserirUsuari($usuari, $hashed_password, $correo) {
+function inserirUsuari($usuari, $hashed_password, $correo) { // MIRAR PARTE DE OAUT
     $connexio = connectarBD();
     $sql = "INSERT INTO usuaris (usuari, contrasenya, correo) VALUES (:usuari, :password, :correo)";
     $stmt = $connexio->prepare($sql);
@@ -20,6 +20,25 @@ function inserirUsuari($usuari, $hashed_password, $correo) {
         'correo' => $correo
     ]); // Retorna true si l'inserció és exitosa
 }
+
+// INSERIR USUARI GOOGLE
+
+function inserirUsuariGoogle($usuari, $hashed_password, $correo, $es_social = false) {
+    $connexio = connectarBD();
+    $sql = "INSERT INTO usuaris (usuari, contrasenya, correo, aut_social) 
+            VALUES (:usuari, :password, :correo, :es_social)";
+    $stmt = $connexio->prepare($sql);
+    
+    // Aquí verificamos que si no tenemos contraseña, la pasamos como NULL.
+    return $stmt->execute([
+        'usuari' => $usuari, // El nombre de usuario aleatorio
+        'password' => $hashed_password === null ? null : $hashed_password, // Usar NULL si no hay contraseña
+        'correo' => $correo, // El correo siempre debe pasarse
+        'es_social' => $es_social ? 'si' : 'no' // Indicamos si es un login social
+    ]);
+}
+
+
 
 
 function obtenirUsuariPerCorreu($email) {
@@ -148,6 +167,13 @@ function eliminarUsuari($id) {
     $sql = "DELETE FROM usuaris WHERE id = :id";
     $stmt = $connexio->prepare($sql);
     $stmt->execute(['id' => $id]);
+}
+
+function insertarUsuariGoogle($correo) {
+    $connexio = connectarBD();
+    $sql = "INSERT INTO usuaris (correo, aut_social, rol) VALUES (:correo, 'si', 'user')";
+    $stmt = $connexio->prepare($sql);
+    return $stmt->execute(['correo' => $correo]);
 }
 
 

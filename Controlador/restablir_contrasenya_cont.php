@@ -2,6 +2,7 @@
 session_start();
 require_once '../Model/UsuariModel.php';
 
+
 // Verificar que se ha recibido el token y las contraseñas
 if (!isset($_POST['token'], $_POST['passnova'], $_POST['rptpass'])) {
     $_SESSION['missatge'] = "Falten dades per restablir la contrasenya.";

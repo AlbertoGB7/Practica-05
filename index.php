@@ -32,11 +32,6 @@ if (isset($_COOKIE['remember_me_token'])) {
     }
 }
 
-// Si no hay sesión ni cookie válida, mostrar la página de inicio de sesión o index
-// header("Location: index.php");
-// exit();
-
-
 include "Login/missatge_logout.php";
 ?>
 

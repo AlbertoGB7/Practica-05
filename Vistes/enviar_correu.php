@@ -1,3 +1,14 @@
+
+<?php
+// ESTO SE TENDRA QUE PONER POR ABAJO, CUANDO SE LE DE AL BOTON
+
+if ($usuari && $usuari['aut_social'] === 'si') {
+    $_SESSION['missatge'] = "Els usuaris amb autenticació social no poden restablir la contrasenya.";
+    header('Location: login_nou.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>

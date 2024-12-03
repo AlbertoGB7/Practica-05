@@ -72,21 +72,21 @@ session_start();
 
                   <hr class="my-4">
 
-                  <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;" type="button">
-                      <img src="../Imatges/googleG.svg.png" alt="Google" style="width: 20px; height: 20px; margin-right: 10px; vertical-align: middle;">
-                      Sign in amb Google
-                  </button>
+                  <button class="login-with-google-btn" type="button" 
+                    onclick="window.location.href='https://accounts.google.com/o/oauth2/v2/auth?client_id=1020951802216-pg83jpfqovemvuj6ufvtjup1c7gae90g.apps.googleusercontent.com&redirect_uri=http://localhost/Practiques/Practica-05/Controlador/soc_aut.php&response_type=code&scope=email profile'">
+                    Entrar amb Google
+                </button>
 
-                  <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;" type="button">
-                      <img src="../Imatges/facebookF.svg.png" alt="Facebook" style="width: 20px; height: 20px; margin-right: 10px; vertical-align: middle;">
-                      Sign in amb Facebook
-                  </button>
+
+                <button class="login-with-facebook-btn" type="button">
+                    Entrar amb GitHub
+                </button>
 
               </form>
           </div>
         </div>
       </div>
-    </div>
+    </div>  
   </div>
 </section>
 </body>
