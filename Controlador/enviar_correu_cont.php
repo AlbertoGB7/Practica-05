@@ -1,4 +1,5 @@
 <?php
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 require '../Model/UsuariModel.php';
 require '../lib/vendor/autoload.php'; // PHPMailer
 
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['correu'])) {
         exit;
     }
 
-    // Verificar si el correo existe en la base de datos
+    // Verificar si el correu existeix a la base de dades
     $usuari = buscarUsuariPerCorreu($correu);
     if (!$usuari) {
         $_SESSION['missatge'] = 'No hi ha cap usuari registrat amb aquest correu.';
@@ -23,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['correu'])) {
         exit;
     }
 
-    // Verificar si el usuario tiene autenticación social
+    // Comprovar si l'usuari té autenticació social
     if ($usuari['aut_social'] === 'si') {
         $_SESSION['missatge'] = 'Correu no enviat ja que no es pot amb autenticació social.';
         header('Location: ../Vistes/enviar_correu.php');

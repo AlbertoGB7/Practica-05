@@ -1,4 +1,5 @@
 <?php
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 include 'verificar_sessio.php';
 include "../Vistes/navbar_view.php";
 require_once "../Model/ArticlesModel.php";

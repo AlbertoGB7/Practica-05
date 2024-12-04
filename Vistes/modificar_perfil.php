@@ -1,8 +1,9 @@
 <?php
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 session_start();
 require_once '../Model/UsuariModel.php';
 
-// Obtener datos del usuario
+
 if (!isset($_SESSION['usuari'])) {
     header("Location: ../Login/login.php");
     exit();
@@ -10,7 +11,7 @@ if (!isset($_SESSION['usuari'])) {
 $usuari = $_SESSION['usuari'];
 $dadesUsuari = obtenirUsuariPerNom($usuari);
 
-// Imagen de perfil por defecto si no tiene una asignada
+// Imatge de perfil per defecte
 $imatgePerfil = $dadesUsuari['imatge'] ?? '../Imatges/def_user.jpeg';
 ?>
 

@@ -29,12 +29,11 @@ function inserirUsuariGoogle($usuari, $hashed_password, $correo, $es_social = fa
             VALUES (:usuari, :password, :correo, :es_social)";
     $stmt = $connexio->prepare($sql);
     
-    // Aquí verificamos que si no tenemos contraseña, la pasamos como NULL.
     return $stmt->execute([
-        'usuari' => $usuari, // El nombre de usuario aleatorio
-        'password' => $hashed_password === null ? null : $hashed_password, // Usar NULL si no hay contraseña
-        'correo' => $correo, // El correo siempre debe pasarse
-        'es_social' => $es_social ? 'si' : 'no' // Indicamos si es un login social
+        'usuari' => $usuari,
+        'password' => $hashed_password === null ? null : $hashed_password,
+        'correo' => $correo,
+        'es_social' => $es_social ? 'si' : 'no'
     ]);
 }
 
@@ -93,13 +92,13 @@ function actualitzarContrasenyaUsuari($idUsuari, $novaContrasenyaHashed) {
     return $stmt->execute(['novaContrasenya' => $novaContrasenyaHashed, 'idUsuari' => $idUsuari]); // Retorna true si l'actualització és exitosa
 }
 
-// Función para guardar el token de recuperación de contraseña
+// Funció per guardar el token de recuperació de contrasenya
 function guardarTokenRecuperacio($userId, $token) {
     $connexio = connectarBD();
-    // Establecer el token de recuperación y su fecha de expiración (por ejemplo, 1 hora)
+    // Token de recuperació (1 hora)
     $sql = "UPDATE usuaris SET token_recuperacion = :token, token_expiracio_restablir = DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE id = :id";
     $stmt = $connexio->prepare($sql);
-    return $stmt->execute(['token' => $token, 'id' => $userId]); // Retorna true si la actualización es exitosa
+    return $stmt->execute(['token' => $token, 'id' => $userId]);
 }
 
 // Función para eliminar el token de recuperación después de restablecer la contraseña
@@ -107,7 +106,7 @@ function eliminarTokenRecuperacio($userId) {
     $connexio = connectarBD();
     $sql = "UPDATE usuaris SET token_recuperacion = NULL, token_expiracio_restablir = NULL WHERE id = :id";
     $stmt = $connexio->prepare($sql);
-    return $stmt->execute(['id' => $userId]); // Retorna true si la eliminación es exitosa
+    return $stmt->execute(['id' => $userId]);
 }
 
 
@@ -122,10 +121,10 @@ function obtenirUsuariPerTokenRec($token) {
 
 function guardarToken($usuari, $token) {
     $connexio = connectarBD();
-    // Calcular la fecha de expiración (7 días a partir de ahora)
+    // 7 dias de token d'expiració
     $expiracio = date('Y-m-d H:i:s', time() + (7 * 24 * 60 * 60));
     
-    // Actualizar el token y su expiración
+    // Actualizar el token
     $sql = "UPDATE usuaris SET token_remember = :token, token_remember_expiracio = :expiracio WHERE usuari = :usuari";
     $stmt = $connexio->prepare($sql);
     return $stmt->execute([
@@ -135,15 +134,15 @@ function guardarToken($usuari, $token) {
     ]);
 }
 
-// Obtener un usuario por el token
+
 function obtenirUsuariPerToken($token) {
     $connexio = connectarBD();
     
-    // Verificar si el token es válido y no ha expirado
+    // Verificar que el token sea vàlid
     $sql = "SELECT * FROM usuaris WHERE token_remember = :token AND token_remember_expiracio > NOW()";
     $stmt = $connexio->prepare($sql);
     $stmt->execute(['token' => $token]);
-    return $stmt->fetch(); // Retorna el usuario si el token es válido
+    return $stmt->fetch();
 }
 
 // PART ADMINISTRADOR

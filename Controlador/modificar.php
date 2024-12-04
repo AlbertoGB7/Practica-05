@@ -1,13 +1,13 @@
 <?php
-# Alberto González Benítez, 2n DAW, Pràctica 04 - Inici d'usuaris i registre de sessions
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 
 session_start();
-require_once "../Model/connexio.php";  // Ajustado para subir un nivel a 'Model'
-include 'verificar_sessio.php';      // Ajustado para subir un nivel
-include "../Vistes/navbar_view.php";    // Ajustado para subir un nivel
-require_once "../Model/ArticlesModel.php";  // Ajustado para subir un nivel
+require_once "../Model/connexio.php";
+include 'verificar_sessio.php';
+include "../Vistes/navbar_view.php";
+require_once "../Model/ArticlesModel.php";
 
-// Obtenim la connexió a la base de dades
+
 $connexio = connectarBD();
 
 $errors = []; 

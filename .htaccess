@@ -1,0 +1,10 @@
+# Redirigir a la página error 301 (permanente) a una URL personalizada
+ErrorDocument 301 /Imatges/error301.png
+
+# Redirigir de no usar www (asegurarse de que siempre se use la URL sin www)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
+
+# Personalizar la página de error 404
+ErrorDocument 404 /Imatges/error404.png

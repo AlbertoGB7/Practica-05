@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- # Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània -->
 <html lang="ca">
 <head>
     <meta charset="utf-8">

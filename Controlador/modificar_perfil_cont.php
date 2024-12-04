@@ -1,4 +1,5 @@
 <?php
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 session_start();
 require_once '../Model/UsuariModel.php';
 
@@ -13,18 +14,18 @@ $dadesUsuari = obtenirUsuariPerNom($usuari);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nouNom = $_POST['nou_nom'] ?? null;
     $novaImatge = $_FILES['nova_imatge'] ?? null;
-    $errors = []; // Array para almacenar los errores
+    $errors = [];
 
-    // Validar nuevo nombre
+    // Validem el nou nom d'usuari
     if ($nouNom && $nouNom !== $dadesUsuari['usuari']) {
-        // Intentar actualizar el nombre de usuario
+        // Comprovar si el nom d'usuari ja existeix
         try {
             actualitzarNomUsuari($usuari, $nouNom);
-            $_SESSION['usuari'] = $nouNom; // Actualizamos la sesión
+            $_SESSION['usuari'] = $nouNom;
             $_SESSION['missatge_exit'] = "Nom d'usuari modificat amb èxit!";
         } catch (PDOException $e) {
-            // Capturar el error de duplicado de usuario
-            if ($e->getCode() == 23000) { // Código de error para restricción de clave única
+            // Codi d'error 23000 per restricció de clau única
+            if ($e->getCode() == 23000) {
                 $errors[] = "Aquest nom d'usuari ja està en ús.";
             } else {
                 $errors[] = "Error en actualitzar el nom d'usuari: " . $e->getMessage();
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Validar y procesar nueva imagen
+    // Validar la nova imatge de perfil
     if ($novaImatge && $novaImatge['error'] === UPLOAD_ERR_OK) {
         $extensionesPermitidas = ['png', 'jpg', 'jpeg', 'webp'];
         $extensio = strtolower(pathinfo($novaImatge['name'], PATHINFO_EXTENSION));

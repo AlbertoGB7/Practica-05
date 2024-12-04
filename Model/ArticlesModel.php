@@ -132,6 +132,8 @@ function obtenirArticlesOrdenatsPerDataDesc($offset, $limit, $connexio) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+// Funció per obtenir el total d'articles
+
 function cercarArticles($terme, $connexio) {
     $sql = "SELECT * FROM articles WHERE titol LIKE :terme";
     $stmt = $connexio->prepare($sql);
@@ -139,6 +141,8 @@ function cercarArticles($terme, $connexio) {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+// Funció per obtenir el total d'articles per un usuari amb cerca
 
 function obtenirTotalArticlesUsuariCercar($usuari_id, $terme, $connexio) {
     $sql = "SELECT COUNT(*) 
@@ -152,7 +156,7 @@ function obtenirTotalArticlesUsuariCercar($usuari_id, $terme, $connexio) {
     return $stmt->fetchColumn();
 }
 
-// Función para obtener artículos paginados de un usuario según un término de búsqueda
+// Funció per obtenir els articles paginats amb cerca
 function obtenirArticlesPaginatsCercar($usuari_id, $offset, $articles_per_pagina, $terme, $connexio) {
     $sql = "SELECT * 
             FROM articles 

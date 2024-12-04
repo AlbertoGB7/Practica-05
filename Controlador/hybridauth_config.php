@@ -1,4 +1,5 @@
 <?php
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 return [
     'callback' => 'http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php',
     'debug_mode' => true,

@@ -1,11 +1,11 @@
 <?php
-# Alberto González Benítez, 2n DAW, Pràctica 04
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 
-require_once "../Model/connexio.php";  // Ajustado para subir un nivel a 'Model'
-include 'verificar_sessio.php';      // Ajustado para subir un nivel
-require_once "../Model/ArticlesModel.php";  // Ajustado para subir un nivel
+require_once "../Model/connexio.php";
+include 'verificar_sessio.php';
+require_once "../Model/ArticlesModel.php";
 
-// Obtenim la connexió a la base de dades
+
 $connexio = connectarBD();
 
 $errors = [];
@@ -50,7 +50,7 @@ if (isset($_POST['insert'])) {
     }
 
     // Redirigim a la vista per mostrar el resultat (error o èxit)
-    header("Location: ../Vistes/insertar.php"); // Ajustado para subir un nivel
+    header("Location: ../Vistes/insertar.php");
     exit();
 }
 

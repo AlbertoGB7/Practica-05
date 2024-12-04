@@ -1,5 +1,5 @@
 <?php
-# Alberto González Benítez, 2n DAW, Pràctica 04 - Inici d'usuaris i registre de sessions
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 require_once '../Model/UsuariModel.php';
 if (isset($_SESSION['usuari'])) {
     $usuari = $_SESSION['usuari'];

@@ -1,4 +1,5 @@
 <?php 
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 require_once "../Model/ArticlesModel.php";
 require_once "../Model/connexio.php";
 

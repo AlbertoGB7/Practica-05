@@ -1,21 +1,21 @@
 <?php
-# Alberto González Benítez, 2n DAW, Pràctica 04 - Inici d'usuaris i registre de sessions
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 
-include 'verificar_sessio.php';  // Cambiado para subir un nivel
-include '../Vistes/navbar_view.php'; // Cambiado para subir un nivel
+include 'verificar_sessio.php';
+include '../Vistes/navbar_view.php';
 require_once "../Model/ArticlesModel.php";
 require_once "../Model/connexio.php";
 
 // Obtenim l'usuari de la sessió
 if (isset($_SESSION['usuari'])) {
     $usuari = $_SESSION['usuari'];
-    $user_id = $_SESSION['user_id'];  // Assegurar que el user_id es guarda a la sessió
+    $user_id = $_SESSION['user_id'];
 } else {
     $usuari = "Invitat";
     $user_id = null;  // Si el usuari no està loguejat, el ID serà null
 }
 
-// Conexió per la base de dades:
+
 $connexio = connectarBD();
 
 $errors = [];
@@ -37,7 +37,7 @@ if (empty($id)) {
 // Si hi ha errors, els guardem i els mostrem a la vista:
 if (!empty($errors)) {
     $_SESSION['missatge'] = implode("<br>", $errors);
-    header("Location: ../Vistes/eliminar.php"); // Cambiado para subir un nivel
+    header("Location: ../Vistes/eliminar.php");
     exit();
 }
 

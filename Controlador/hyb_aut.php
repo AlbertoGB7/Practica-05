@@ -1,43 +1,44 @@
 <?php
+# Alberto González Benítez, 2n DAW, Pràctica 05 - Social Authentication & Miscel·lània
 require_once '../vendor/autoload.php';
 var_dump(class_exists('Hybridauth\Hybridauth'));
-require_once '../Model/UsuariModel.php'; // Tu modelo para manejar la base de datos
+require_once '../Model/UsuariModel.php';
 
-// Cargar la configuración de HybridAuth
+// Carguem el fitxer de configuració de HybridAuth
 $config = require_once 'hybridauth_config.php';
 
 use Hybridauth\Hybridauth;
-// Iniciar HybridAuth con la configuración
+// Inicialitzem la llibreria HybridAuth
 try {
     $hybridauth = new Hybridauth($config);
 
-    // Obtener el adaptador para GitHub
+    // Autenticació amb GitHub
     $adapter = $hybridauth->authenticate('github');
 
-    // Obtener la información del usuario de GitHub
+    // Obtenir el perfil de l'usuari
     $userProfile = $adapter->getUserProfile();
 
-    // Obtener correo y generar nombre de usuario
+    // Dades de l'usuari
     $email = $userProfile->email;
-    $name = $userProfile->firstName . ' ' . $userProfile->lastName; // Puedes personalizarlo como desees
-    $nombreUsuario = 'Usuari' . rand(1000, 9999); // Generar nombre de usuario aleatorio
+    $name = $userProfile->firstName . ' ' . $userProfile->lastName;
+    $nombreUsuario = 'Usuari' . rand(1000, 9999); // Nom d'usuari per defecte aleatori
 
-    // Comprobar si el usuario ya existe en la base de datos
+    // Comprovar si l'usuari ja existeix a la base de dades
     $existingUser = obtenirUsuariPerCorreu($email);
     
     if (!$existingUser) {
-        // Si el usuario no existe, creamos uno nuevo
-        $hashedPassword = null; // Si es login social, no necesitamos una contraseña
-        inserirUsuariGoogle($nombreUsuario, $hashedPassword, $email, true); // Inserción para usuarios sociales (modifica el nombre si es necesario)
+        // Si l'usuari no existeix, l'afegim a la base de dades
+        $hashedPassword = null; //  No es necessita contrasenya per a usuaris socials
+        inserirUsuariGoogle($nombreUsuario, $hashedPassword, $email, true); // true indica que és un usuari social
     }
 
-    // Crear la sesión y redirigir al usuario
+    // Iniciar sessió amb l'usuari
     session_start();
     $_SESSION['usuari'] = $existingUser ? $existingUser['usuari'] : $nombreUsuario;
     header('Location: ../Vistes/index_usuari.php');
     exit;
 
 } catch (Exception $e) {
-    // Manejo de errores en la autenticación
+    // Error durant l'autenticació
     die('Error durante la autenticación: ' . $e->getMessage());
 }
