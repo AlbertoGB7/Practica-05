@@ -22,7 +22,7 @@ if (isset($_SESSION['usuari'])) {
     <link rel="stylesheet" type="text/css" href="../CSS/estil_formulari.css">
     <title>Eliminar article</title>
 </head>
-<body>   
+<body style="background: #6868AC">   
 <h2>
 <form method="POST" action="../Controlador/eliminar.php">
 

@@ -10,8 +10,6 @@ if (isset($_SESSION['usuari'])) {
     $usuari = "Invitat";
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +20,7 @@ if (isset($_SESSION['usuari'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="stylesheet" type="text/css" href="../CSS/estil_formulari.css">
 </head>
-<body>   
+<body style="background: #6868AC">   
     <form method="POST" action="../Controlador/insertar.php">
         <div class="form">
             <div class="title">Insertar article</div>

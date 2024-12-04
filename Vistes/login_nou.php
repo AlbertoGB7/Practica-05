@@ -2,7 +2,6 @@
 session_start();
 ?>
 
-
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -24,8 +23,13 @@ session_start();
               <?php
               // Mostrar mensajes de error o éxito si existen
               if (isset($_SESSION['missatge'])) {
-                  echo "<p style='color: red; font-family: \"Calligraffitti\", cursive;'>" . $_SESSION['missatge'] . "</p>";
+                  echo "<div class='alert alert-danger alert-custom' role='alert'>" . $_SESSION['missatge'] . "</div>";
                   unset($_SESSION['missatge']);
+              }
+
+              if (isset($_SESSION['missatge_exit'])) {
+                  echo "<div class='alert alert-success alert-custom' role='alert'>" . $_SESSION['missatge_exit'] . "</div>";
+                  unset($_SESSION['missatge_exit']);
               }
               ?>
 
@@ -34,12 +38,12 @@ session_start();
                   
                   <div class="form-outline mb-4">
                       <label class="form-label" for="usuari">Usuari</label>
-                      <input type="text" id="usuari" name="usuari" class="form-control form-control-lg bg-dark text-white" />
+                      <input type="text" id="usuari" name="usuari" class="form-control form-control-lg bg-dark text-white" value="<?php echo isset($_SESSION['usuari']) ? $_SESSION['usuari'] : ''; ?>" />
                   </div>
 
                   <div class="form-outline mb-4">
                       <label class="form-label" for="email">Correu</label>
-                      <input type="email" id="email" name="email" class="form-control form-control-lg bg-dark text-white" />
+                      <input type="email" id="email" name="email" class="form-control form-control-lg bg-dark text-white" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>" />
                   </div>
 
                   <div class="form-outline mb-4">
@@ -65,10 +69,7 @@ session_start();
                   </div>
                   <?php endif; ?>
 
-
                   <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button><br>
-
-          
 
                   <hr class="my-4">
 
@@ -77,12 +78,10 @@ session_start();
                     Entrar amb Google
                 </button>
 
-
                 <!-- Botón para iniciar sesión con GitHub -->
                 <a href="../Controlador/hyb_aut.php" class="login-with-github-btn" type="button">
                     Entrar amb GitHub
                 </a>
-
 
               </form>
           </div>

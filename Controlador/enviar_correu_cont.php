@@ -23,6 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['correu'])) {
         exit;
     }
 
+    // Verificar si el usuario tiene autenticación social
+    if ($usuari['aut_social'] === 'si') {
+        $_SESSION['missatge'] = 'Correu no enviat ja que no es pot amb autenticació social.';
+        header('Location: ../Vistes/enviar_correu.php');
+        exit;
+    }
+
     // Generar un token
     $token = bin2hex(random_bytes(16));
     guardarTokenRecuperacio($usuari['id'], $token);
@@ -47,10 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['correu'])) {
         <a href='http://localhost/Practiques/Practica-05/Vistes/restablir_contrasenya.php?token=$token'>Restablir contrasenya</a>";
 
         $mail->send();
-        $_SESSION['missatge_exit'] = 'Correu enviat correctament.';
+        $_SESSION['missatge_exit'] = 'Correu enviat correctament. Mira el teu correu per restablir la contrasenya.';
     } catch (Exception $e) {
         $_SESSION['missatge'] = 'No s\'ha pogut enviar el correu. Error: ' . $mail->ErrorInfo;
     }
 
     header('Location: ../Vistes/enviar_correu.php');
+    exit;
 }

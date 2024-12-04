@@ -46,13 +46,14 @@ if (isset($_SESSION['usuari'])) {
 
     <!-- Mostrem el missatge de benvinguda a l'usuari si esta la cookie -->
     <?php if (isset($_COOKIE['login_exitos'])): ?>
-        <div class="alert alert-success d-flex align-items-center" role="alert">
-            <strong> <?php echo htmlspecialchars($usuari); ?></strong>, t'has loguejat amb èxit
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <!-- Eliminem la cookie un cop mostrat el missatge -->
-        <?php setcookie('login_exitos', '', time() - 3600, '/'); ?>
-    <?php endif; ?>
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+        <strong> <?php echo htmlspecialchars($usuari); ?></strong>, t'has loguejat amb èxit
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <!-- Eliminamos la cookie después de mostrar el mensaje -->
+    <?php setcookie('login_exitos', '', time() - 3600, '/'); ?>
+<?php endif; ?>
+
     
 </body>
 

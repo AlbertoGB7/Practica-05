@@ -1,12 +1,5 @@
-
 <?php
-// ESTO SE TENDRA QUE PONER POR ABAJO, CUANDO SE LE DE AL BOTON
-
-if ($usuari && $usuari['aut_social'] === 'si') {
-    $_SESSION['missatge'] = "Els usuaris amb autenticació social no poden restablir la contrasenya.";
-    header('Location: login_nou.php');
-    exit;
-}
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -28,17 +21,22 @@ if ($usuari && $usuari['aut_social'] === 'si') {
               <h3 class="titol_canvi_pass">Restablir Contrasenya</h3>
 
               <?php
-              session_start();
+              // Mostrar mensajes de error o éxito si existen
               if (isset($_SESSION['missatge'])) {
-                  echo "<p style='color: red;'>" . $_SESSION['missatge'] . "</p>";
+                  echo "<div class='alert alert-danger alert-custom' role='alert'>" . $_SESSION['missatge'] . "</div>";
                   unset($_SESSION['missatge']);
+              }
+
+              if (isset($_SESSION['missatge_exit'])) {
+                  echo "<div class='alert alert-success alert-custom' role='alert'>" . $_SESSION['missatge_exit'] . "</div>";
+                  unset($_SESSION['missatge_exit']);
               }
               ?>
 
               <form method="POST" action="../Controlador/enviar_correu_cont.php">
                   <div class="form-outline mb-4">
-                      <label for="correu" class="form-label">Correu electrònic</label>
-                      <input type="email" id="correu" name="correu" class="form-control bg-dark text-white" required>
+                      <label for="correu" class="form-label text-dark">Correu electrònic</label>
+                      <input type="email" id="correu" name="correu" class="form-control bg-dark text-white">
                   </div>
 
                   <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>

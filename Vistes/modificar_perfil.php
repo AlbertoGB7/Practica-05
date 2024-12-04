@@ -23,7 +23,7 @@ $imatgePerfil = $dadesUsuari['imatge'] ?? '../Imatges/def_user.jpeg';
     <link rel="stylesheet" href="../CSS/estils.css">
     <title>Modificar Perfil</title>
 </head>
-<body>
+<body class="fons_modificar_perfil">
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -44,10 +44,25 @@ $imatgePerfil = $dadesUsuari['imatge'] ?? '../Imatges/def_user.jpeg';
                         <label for="correu" class="form-label">Correu electrònic</label>
                         <input type="email" id="correu" class="form-control" value="<?= htmlspecialchars($dadesUsuari['correo']) ?>" disabled>
                     </div>
+
+                        <?php
+                        // Mostrar mensajes de error o éxito si existen
+                        if (isset($_SESSION['missatge'])) {
+                            echo "<div class='alert alert-danger alert-custom' role='alert'>" . $_SESSION['missatge'] . "</div>";
+                            unset($_SESSION['missatge']);
+                        }
+
+                        if (isset($_SESSION['missatge_exit'])) {
+                            echo "<div class='alert alert-success alert-custom' role='alert'>" . $_SESSION['missatge_exit'] . "</div>";
+                            unset($_SESSION['missatge_exit']);
+                        }
+                        ?>
+
+
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Modificar</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Modificar</button>
                         <a href="../Vistes/index_usuari.php">
-                        <button type="button" class="btn btn-primary" role="button">Anar enrere</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block" role="button">Anar enrere</button>
                         </a>
                     </div>
                 </form>

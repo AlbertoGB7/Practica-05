@@ -21,6 +21,13 @@ if ($novaContrasenya !== $repetirContrasenya) {
     exit();
 }
 
+// Validar que la contrasenya compleixi amb els requisits
+if (!preg_match('/^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/', $novaContrasenya)) {
+    $_SESSION['missatge'] = "La contrasenya ha de contenir 8 caràcters, una mayúscula, un número i un símbol.";
+    header("Location: ../Vistes/restablir_contrasenya.php?token=$token");
+    exit();
+}
+
 // Validar el token y obtener el usuario
 $usuari = obtenirUsuariPerTokenRec($token);
 
@@ -41,5 +48,5 @@ if (actualitzarContrasenyaUsuari($usuari['id'], $hashed_password)) {  // Pasar l
     $_SESSION['missatge'] = "Error en restablir la contrasenya.";
 }
 
-header("Location: ../Vistes/restablir_contrasenya.php");
+header("Location: ../Vistes/login_nou.php");
 exit();

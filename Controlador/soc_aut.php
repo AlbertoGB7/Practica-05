@@ -46,7 +46,6 @@ if (isset($_GET['code'])) {
         die('Error durante la autenticación: ' . $e->getMessage());
     }
 } else {
-    
     header('Location: ../Vistes/login_nou.php');
     exit;
 }

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../Model/UsuariModel.php";
+include "navbar_view.php";
 
 if (!isset($_SESSION['usuari']) || $_SESSION['rol'] !== 'admin') {
     header("Location: index_usuari.php");
@@ -8,8 +9,8 @@ if (!isset($_SESSION['usuari']) || $_SESSION['rol'] !== 'admin') {
 }
 
 $usuaris = obtenirTotsElsUsuaris(); // Recuperar tots els usuaris de la BD
-
 ?>
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -21,7 +22,16 @@ $usuaris = obtenirTotsElsUsuaris(); // Recuperar tots els usuaris de la BD
 </head>
 <body>
 <div class="container mt-5">
-    <h1>Gestió d'Usuaris</h1>
+    <h1 class="titol_elim_usuaris">Gestió d'Usuaris</h1>
+
+    <!-- Mostrar el missatge de èxit si s'ha eliminat un usuari -->
+    <?php if (isset($_SESSION['missatge_exit'])): ?>
+        <div class="alert alert-success" role="alert">
+            <?= $_SESSION['missatge_exit'] ?>
+        </div>
+        <?php unset($_SESSION['missatge_exit']); // Eliminar el missatge després de mostrar-lo ?>
+    <?php endif; ?>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -51,11 +61,11 @@ $usuaris = obtenirTotsElsUsuaris(); // Recuperar tots els usuaris de la BD
     </table>
 </div>
 
-        <div>
-            <a href="../Vistes/index_usuari.php">
-                <button type="button" class="tornar" role="button">Anar enrere</button>
-            </a>
-        </div>
+<div>
+    <a href="../Vistes/index_usuari.php">
+        <button type="button" class="tornar" role="button">Anar enrere</button>
+    </a>
+</div>
 
 </body>
 </html>

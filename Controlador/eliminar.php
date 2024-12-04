@@ -60,7 +60,7 @@ if (isset($_POST['buscar']) && $id) {
               </div>";
 
         // Botons per eliminar o tornar enrere
-        echo "<form method='POST' action='modificar.php'>  <!-- Cambiado a modificar.php -->
+        echo "<form method='POST' action='eliminar.php'>
                 <input type='hidden' name='id' value='{$article['ID']}' />
                 <input type='submit' value='Eliminar' class='boto' name='eliminar'><br><br>
               </form>

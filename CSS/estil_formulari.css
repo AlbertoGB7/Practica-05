@@ -393,3 +393,14 @@ form .text h3 a{
 form .text h3 a:hover{
   text-decoration: underline;
 }
+
+/* FONS */
+.fons_eliminar {
+  background-image: url('../Imatges/fons4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  background-color: transparent;
+}

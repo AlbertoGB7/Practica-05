@@ -14,19 +14,22 @@
         <div class="card card-blur shadow-2-strong text-white">
           <div class="card-body p-5 text-center">
               <h3 class="titol_canvi_pass">Canviar contrasenya</h3>
-              
 
               <?php
               session_start();
+              
+              // Mostrar mensajes de alerta
               if (isset($_SESSION['missatge'])) {
-                  echo "<p style='color: red; font-family: \"Calligraffitti\", cursive;'>" . $_SESSION['missatge'] . "</p>";
+                  // Mensaje de error
+                  echo "<div class='alert alert-danger' role='alert'>" . $_SESSION['missatge'] . "</div>";
                   unset($_SESSION['missatge']);
               }
+
               if (isset($_SESSION['missatge_exit'])) {
-                  echo "<p style='color: green; font-family: \"Calligraffitti\", cursive;'>" . $_SESSION['missatge_exit'] . "</p>";
+                  // Mensaje de éxito
+                  echo "<div class='alert alert-success' role='alert'>" . $_SESSION['missatge_exit'] . "</div>";
                   unset($_SESSION['missatge_exit']);
               }
-              echo '<br>';
               ?>
 
               <form method="POST" action="../Controlador/modificar_contrasenya.php">
@@ -47,9 +50,12 @@
                       <input type="password" id="rptpass" name="rptpass" class="form-control form-control-lg bg-dark text-white" />
                   </div>
 
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Canviar contrasenya</button>
-
                   <hr class="my-4">
+
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Canviar contrasenya</button>
+                  <a href="../Vistes/index_usuari.php">
+                  <button type="button" class="btn btn-primary btn-lg btn-block" role="button">Anar enrere</button>
+                  </a>
               </form>
           </div>
         </div>

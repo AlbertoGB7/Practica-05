@@ -480,3 +480,3400 @@ Authorization: Bearer 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
 
 )
 
+debug -- ::1 -- 2024-12-03T20:20:29+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-03T20:20:29+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-03T20:20:29+01:00 -- Hybridauth\Provider\GitHub::authenticateBegin(), redirecting user to:
+Array
+(
+    [0] => https://github.com/login/oauth/authorize?response_type=code&client_id=Ov23liQKstdFfgFGP9Bo&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&scope=user%3Aemail&state=HA-G5B6HDEW98YPUZAMTXI0FV7RJKNSOQ3C1L24
+)
+
+debug -- ::1 -- 2024-12-03T20:20:32+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-03T20:20:32+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-03T20:20:32+01:00 -- Hybridauth\Provider\GitHub::authenticateFinish(), callback url:
+Array
+(
+    [0] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php?code=2613585f2a4c65475c90&state=HA-G5B6HDEW98YPUZAMTXI0FV7RJKNSOQ3C1L24
+)
+
+debug -- ::1 -- 2024-12-03T20:20:32+01:00 -- Hybridauth\HttpClient\Curl::request( https://github.com/login/oauth/access_token, POST ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://github.com/login/oauth/access_token
+            [method] => POST
+            [parameters] => Array
+                (
+                    [client_id] => Ov23liQKstdFfgFGP9Bo
+                    [client_secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+                    [grant_type] => authorization_code
+                    [redirect_uri] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+                    [code] => 2613585f2a4c65475c90
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => GitHub.com
+                    [date] => Tue, 03 Dec 2024 19:20:32 GMT
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [vary] => Accept-Encoding, Accept, X-Requested-With
+                    [etag] => W/"4b9abe7969792802feb7fd159e69c1f5"
+                    [cache_control] => max-age=0, private, must-revalidate
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'; base-uri 'self'; child-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net/ productionresultssa1.blob.core.windows.net/ productionresultssa2.blob.core.windows.net/ productionresultssa3.blob.core.windows.net/ productionresultssa4.blob.core.windows.net/ productionresultssa5.blob.core.windows.net/ productionresultssa6.blob.core.windows.net/ productionresultssa7.blob.core.windows.net/ productionresultssa8.blob.core.windows.net/ productionresultssa9.blob.core.windows.net/ productionresultssa10.blob.core.windows.net/ productionresultssa11.blob.core.windows.net/ productionresultssa12.blob.core.windows.net/ productionresultssa13.blob.core.windows.net/ productionresultssa14.blob.core.windows.net/ productionresultssa15.blob.core.windows.net/ productionresultssa16.blob.core.windows.net/ productionresultssa17.blob.core.windows.net/ productionresultssa18.blob.core.windows.net/ productionresultssa19.blob.core.windows.net/ github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com secured-user-images.githubusercontent.com/ user-images.githubusercontent.com/ private-user-images.githubusercontent.com opengraph.githubassets.com github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/ secured-user-images.githubusercontent.com/ private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/
+                    [x_github_request_id] => 9DA0:3ED9C4:12FD27F:1370920:674F5A00
+                )
+
+            [body] => access_token=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&scope=user%3Aemail&token_type=bearer
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://github.com/login/oauth/access_token
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 3907
+                    [request_size] => 553
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.320867
+                    [namelookup_time] => 0.006864
+                    [connect_time] => 0.044239
+                    [pretransfer_time] => 0.098362
+                    [size_upload] => 232
+                    [size_download] => 90
+                    [speed_download] => 280
+                    [speed_upload] => 723
+                    [download_content_length] => -1
+                    [upload_content_length] => 232
+                    [starttransfer_time] => 0.312325
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.3
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 6700
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 98140
+                    [connect_time_us] => 44239
+                    [namelookup_time_us] => 6864
+                    [pretransfer_time_us] => 98362
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 312325
+                    [total_time_us] => 320867
+                    [request_header] => POST /login/oauth/access_token HTTP/2
+Host: github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 232
+Content-Type: application/x-www-form-urlencoded
+
+
+                    [effective_method] => POST
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [47] => 1
+                    [10015] => client_id=Ov23liQKstdFfgFGP9Bo&client_secret=127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&code=2613585f2a4c65475c90
+                    [10002] => https://github.com/login/oauth/access_token
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-03T20:20:32+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Tue, 03 Dec 2024 19:20:32 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "b44a521aa8212a2508b2aa2c3dfbc3356e41113fcd1698b02c28f8babe949da2"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => CBC9:3E2FEA:117BF80:11D54C8:674F5A00
+                    [content_length] => 1228
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => 
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4981
+                    [x_ratelimit_reset] => 1733254795
+                    [x_ratelimit_used] => 19
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => {"login":"AlbertoGB7","id":186597022,"node_id":"U_kgDOCx8-ng","avatar_url":"https://avatars.githubusercontent.com/u/186597022?v=4","gravatar_id":"","url":"https://api.github.com/users/AlbertoGB7","html_url":"https://github.com/AlbertoGB7","followers_url":"https://api.github.com/users/AlbertoGB7/followers","following_url":"https://api.github.com/users/AlbertoGB7/following{/other_user}","gists_url":"https://api.github.com/users/AlbertoGB7/gists{/gist_id}","starred_url":"https://api.github.com/users/AlbertoGB7/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AlbertoGB7/subscriptions","organizations_url":"https://api.github.com/users/AlbertoGB7/orgs","repos_url":"https://api.github.com/users/AlbertoGB7/repos","events_url":"https://api.github.com/users/AlbertoGB7/events{/privacy}","received_events_url":"https://api.github.com/users/AlbertoGB7/received_events","type":"User","user_view_type":"public","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":2,"public_gists":0,"followers":0,"following":0,"created_at":"2024-10-28T14:32:48Z","updated_at":"2024-12-01T14:53:19Z"}
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1400
+                    [request_size] => 299
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.324126
+                    [namelookup_time] => 0.01507
+                    [connect_time] => 0.05484
+                    [pretransfer_time] => 0.097504
+                    [size_upload] => 0
+                    [size_download] => 1228
+                    [speed_download] => 3788
+                    [speed_upload] => 0
+                    [download_content_length] => 1228
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.324051
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.6
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 6703
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 97324
+                    [connect_time_us] => 54840
+                    [namelookup_time_us] => 15070
+                    [pretransfer_time_us] => 97504
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 324051
+                    [total_time_us] => 324126
+                    [request_header] => GET /user? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-03T20:20:33+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user/emails?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user/emails
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Tue, 03 Dec 2024 19:20:32 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "7d24139cf98c91d01e96de127be220522fc2b8c19801e1581f4c7b5dedfbebf5"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => 8EDD:14DD5F:115B523:11B40DB:674F5A00
+                    [content_length] => 93
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => user, user:email
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4980
+                    [x_ratelimit_reset] => 1733254795
+                    [x_ratelimit_used] => 20
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => [{"email":"a.gonzalez7@sapalomera.cat","primary":true,"verified":true,"visibility":"public"}]
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user/emails
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1368
+                    [request_size] => 306
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.271219
+                    [namelookup_time] => 0.001164
+                    [connect_time] => 0.042141
+                    [pretransfer_time] => 0.084452
+                    [size_upload] => 0
+                    [size_download] => 93
+                    [speed_download] => 342
+                    [speed_upload] => 0
+                    [download_content_length] => 93
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.271157
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.6
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 6706
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 84260
+                    [connect_time_us] => 42141
+                    [namelookup_time_us] => 1164
+                    [pretransfer_time_us] => 84452
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 271157
+                    [total_time_us] => 271219
+                    [request_header] => GET /user/emails? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user/emails?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:08:48+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T15:08:48+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T15:08:48+01:00 -- Hybridauth\Provider\GitHub::authenticateBegin(), redirecting user to:
+Array
+(
+    [0] => https://github.com/login/oauth/authorize?response_type=code&client_id=Ov23liQKstdFfgFGP9Bo&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&scope=user%3Aemail&state=HA-D8HRUQV3FZMWPCTJ4NO71B2EG609LS5KAYIX
+)
+
+debug -- ::1 -- 2024-12-04T15:08:48+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T15:08:48+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T15:08:48+01:00 -- Hybridauth\Provider\GitHub::authenticateFinish(), callback url:
+Array
+(
+    [0] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php?code=b4838f558780ce52244a&state=HA-D8HRUQV3FZMWPCTJ4NO71B2EG609LS5KAYIX
+)
+
+debug -- ::1 -- 2024-12-04T15:08:48+01:00 -- Hybridauth\HttpClient\Curl::request( https://github.com/login/oauth/access_token, POST ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://github.com/login/oauth/access_token
+            [method] => POST
+            [parameters] => Array
+                (
+                    [client_id] => Ov23liQKstdFfgFGP9Bo
+                    [client_secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+                    [grant_type] => authorization_code
+                    [redirect_uri] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+                    [code] => b4838f558780ce52244a
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => GitHub.com
+                    [date] => Wed, 04 Dec 2024 14:08:49 GMT
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [vary] => Accept-Encoding, Accept, X-Requested-With
+                    [etag] => W/"a248cbb42de437dfdab8aeee65bb6685"
+                    [cache_control] => max-age=0, private, must-revalidate
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'; base-uri 'self'; child-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net/ productionresultssa1.blob.core.windows.net/ productionresultssa2.blob.core.windows.net/ productionresultssa3.blob.core.windows.net/ productionresultssa4.blob.core.windows.net/ productionresultssa5.blob.core.windows.net/ productionresultssa6.blob.core.windows.net/ productionresultssa7.blob.core.windows.net/ productionresultssa8.blob.core.windows.net/ productionresultssa9.blob.core.windows.net/ productionresultssa10.blob.core.windows.net/ productionresultssa11.blob.core.windows.net/ productionresultssa12.blob.core.windows.net/ productionresultssa13.blob.core.windows.net/ productionresultssa14.blob.core.windows.net/ productionresultssa15.blob.core.windows.net/ productionresultssa16.blob.core.windows.net/ productionresultssa17.blob.core.windows.net/ productionresultssa18.blob.core.windows.net/ productionresultssa19.blob.core.windows.net/ github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com secured-user-images.githubusercontent.com/ user-images.githubusercontent.com/ private-user-images.githubusercontent.com opengraph.githubassets.com github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/ secured-user-images.githubusercontent.com/ private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/
+                    [x_github_request_id] => 8ED9:1D1895:9F415F:A21221:67506271
+                )
+
+            [body] => access_token=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&scope=user%3Aemail&token_type=bearer
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://github.com/login/oauth/access_token
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 3905
+                    [request_size] => 553
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.334344
+                    [namelookup_time] => 0.005773
+                    [connect_time] => 0.038521
+                    [pretransfer_time] => 0.096895
+                    [size_upload] => 232
+                    [size_download] => 90
+                    [speed_download] => 269
+                    [speed_upload] => 693
+                    [download_content_length] => -1
+                    [upload_content_length] => 232
+                    [starttransfer_time] => 0.33424
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.4
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56198
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 96420
+                    [connect_time_us] => 38521
+                    [namelookup_time_us] => 5773
+                    [pretransfer_time_us] => 96895
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 334240
+                    [total_time_us] => 334344
+                    [request_header] => POST /login/oauth/access_token HTTP/2
+Host: github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 232
+Content-Type: application/x-www-form-urlencoded
+
+
+                    [effective_method] => POST
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [47] => 1
+                    [10015] => client_id=Ov23liQKstdFfgFGP9Bo&client_secret=127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&code=b4838f558780ce52244a
+                    [10002] => https://github.com/login/oauth/access_token
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:08:49+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 14:08:49 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "b699ee901ee929919ca27cffb1d0ade92cdb25163144463a07ef5126595de367"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => 279A:3C7E7C:4A45552:4BEE927:67506271
+                    [content_length] => 1228
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => 
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4991
+                    [x_ratelimit_reset] => 1733324749
+                    [x_ratelimit_used] => 9
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => {"login":"AlbertoGB7","id":186597022,"node_id":"U_kgDOCx8-ng","avatar_url":"https://avatars.githubusercontent.com/u/186597022?v=4","gravatar_id":"","url":"https://api.github.com/users/AlbertoGB7","html_url":"https://github.com/AlbertoGB7","followers_url":"https://api.github.com/users/AlbertoGB7/followers","following_url":"https://api.github.com/users/AlbertoGB7/following{/other_user}","gists_url":"https://api.github.com/users/AlbertoGB7/gists{/gist_id}","starred_url":"https://api.github.com/users/AlbertoGB7/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AlbertoGB7/subscriptions","organizations_url":"https://api.github.com/users/AlbertoGB7/orgs","repos_url":"https://api.github.com/users/AlbertoGB7/repos","events_url":"https://api.github.com/users/AlbertoGB7/events{/privacy}","received_events_url":"https://api.github.com/users/AlbertoGB7/received_events","type":"User","user_view_type":"public","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":2,"public_gists":0,"followers":0,"following":0,"created_at":"2024-10-28T14:32:48Z","updated_at":"2024-12-01T14:53:19Z"}
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1399
+                    [request_size] => 299
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.391462
+                    [namelookup_time] => 0.003122
+                    [connect_time] => 0.074885
+                    [pretransfer_time] => 0.137775
+                    [size_upload] => 0
+                    [size_download] => 1228
+                    [speed_download] => 3136
+                    [speed_upload] => 0
+                    [download_content_length] => 1228
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.391373
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56201
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 137566
+                    [connect_time_us] => 74885
+                    [namelookup_time_us] => 3122
+                    [pretransfer_time_us] => 137775
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 391373
+                    [total_time_us] => 391462
+                    [request_header] => GET /user? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:08:49+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user/emails?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user/emails
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 14:08:50 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "c36bd8578adee226e3b4652659f2cfe8d23666c5fc2441600e0be37c3d69b9d7"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => D183:1FFEBD:4639D9A:47E4DC9:67506271
+                    [content_length] => 93
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => user, user:email
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4990
+                    [x_ratelimit_reset] => 1733324749
+                    [x_ratelimit_used] => 10
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => [{"email":"a.gonzalez7@sapalomera.cat","primary":true,"verified":true,"visibility":"public"}]
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user/emails
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1368
+                    [request_size] => 306
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.384413
+                    [namelookup_time] => 0.00195
+                    [connect_time] => 0.076977
+                    [pretransfer_time] => 0.146558
+                    [size_upload] => 0
+                    [size_download] => 93
+                    [speed_download] => 241
+                    [speed_upload] => 0
+                    [download_content_length] => 93
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.384331
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56204
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 146337
+                    [connect_time_us] => 76977
+                    [namelookup_time_us] => 1950
+                    [pretransfer_time_us] => 146558
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 384331
+                    [total_time_us] => 384413
+                    [request_header] => GET /user/emails? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user/emails?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:08:55+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T15:08:55+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T15:08:55+01:00 -- Hybridauth\Provider\GitHub::authenticateBegin(), redirecting user to:
+Array
+(
+    [0] => https://github.com/login/oauth/authorize?response_type=code&client_id=Ov23liQKstdFfgFGP9Bo&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&scope=user%3Aemail&state=HA-0CW5Z2IMPT14KLXSQHUO3YADG7FVEJ9R6N8B
+)
+
+debug -- ::1 -- 2024-12-04T15:08:55+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T15:08:55+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T15:08:55+01:00 -- Hybridauth\Provider\GitHub::authenticateFinish(), callback url:
+Array
+(
+    [0] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php?code=a72d064156784739f9fc&state=HA-0CW5Z2IMPT14KLXSQHUO3YADG7FVEJ9R6N8B
+)
+
+debug -- ::1 -- 2024-12-04T15:08:55+01:00 -- Hybridauth\HttpClient\Curl::request( https://github.com/login/oauth/access_token, POST ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://github.com/login/oauth/access_token
+            [method] => POST
+            [parameters] => Array
+                (
+                    [client_id] => Ov23liQKstdFfgFGP9Bo
+                    [client_secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+                    [grant_type] => authorization_code
+                    [redirect_uri] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+                    [code] => a72d064156784739f9fc
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => GitHub.com
+                    [date] => Wed, 04 Dec 2024 14:08:56 GMT
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [vary] => Accept-Encoding, Accept, X-Requested-With
+                    [etag] => W/"f5402d1685e7bf35e8a00480700dd300"
+                    [cache_control] => max-age=0, private, must-revalidate
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'; base-uri 'self'; child-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net/ productionresultssa1.blob.core.windows.net/ productionresultssa2.blob.core.windows.net/ productionresultssa3.blob.core.windows.net/ productionresultssa4.blob.core.windows.net/ productionresultssa5.blob.core.windows.net/ productionresultssa6.blob.core.windows.net/ productionresultssa7.blob.core.windows.net/ productionresultssa8.blob.core.windows.net/ productionresultssa9.blob.core.windows.net/ productionresultssa10.blob.core.windows.net/ productionresultssa11.blob.core.windows.net/ productionresultssa12.blob.core.windows.net/ productionresultssa13.blob.core.windows.net/ productionresultssa14.blob.core.windows.net/ productionresultssa15.blob.core.windows.net/ productionresultssa16.blob.core.windows.net/ productionresultssa17.blob.core.windows.net/ productionresultssa18.blob.core.windows.net/ productionresultssa19.blob.core.windows.net/ github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com secured-user-images.githubusercontent.com/ user-images.githubusercontent.com/ private-user-images.githubusercontent.com opengraph.githubassets.com github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/ secured-user-images.githubusercontent.com/ private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/
+                    [x_github_request_id] => B5AB:33FE61:9B2CDD:9DFE90:67506278
+                )
+
+            [body] => access_token=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&scope=user%3Aemail&token_type=bearer
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://github.com/login/oauth/access_token
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 3905
+                    [request_size] => 553
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.304457
+                    [namelookup_time] => 0.001504
+                    [connect_time] => 0.044943
+                    [pretransfer_time] => 0.093265
+                    [size_upload] => 232
+                    [size_download] => 90
+                    [speed_download] => 295
+                    [speed_upload] => 762
+                    [download_content_length] => -1
+                    [upload_content_length] => 232
+                    [starttransfer_time] => 0.304323
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.4
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56214
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 93019
+                    [connect_time_us] => 44943
+                    [namelookup_time_us] => 1504
+                    [pretransfer_time_us] => 93265
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 304323
+                    [total_time_us] => 304457
+                    [request_header] => POST /login/oauth/access_token HTTP/2
+Host: github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 232
+Content-Type: application/x-www-form-urlencoded
+
+
+                    [effective_method] => POST
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [47] => 1
+                    [10015] => client_id=Ov23liQKstdFfgFGP9Bo&client_secret=127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&code=a72d064156784739f9fc
+                    [10002] => https://github.com/login/oauth/access_token
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:08:56+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 14:08:56 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "16c0b0b902c46e5cb65583f1fb4a09bc670574f88c632ce59bef81f1088465f4"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => D803:21D3E7:451726E:46C003E:67506278
+                    [content_length] => 1228
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => 
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4989
+                    [x_ratelimit_reset] => 1733324749
+                    [x_ratelimit_used] => 11
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => {"login":"AlbertoGB7","id":186597022,"node_id":"U_kgDOCx8-ng","avatar_url":"https://avatars.githubusercontent.com/u/186597022?v=4","gravatar_id":"","url":"https://api.github.com/users/AlbertoGB7","html_url":"https://github.com/AlbertoGB7","followers_url":"https://api.github.com/users/AlbertoGB7/followers","following_url":"https://api.github.com/users/AlbertoGB7/following{/other_user}","gists_url":"https://api.github.com/users/AlbertoGB7/gists{/gist_id}","starred_url":"https://api.github.com/users/AlbertoGB7/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AlbertoGB7/subscriptions","organizations_url":"https://api.github.com/users/AlbertoGB7/orgs","repos_url":"https://api.github.com/users/AlbertoGB7/repos","events_url":"https://api.github.com/users/AlbertoGB7/events{/privacy}","received_events_url":"https://api.github.com/users/AlbertoGB7/received_events","type":"User","user_view_type":"public","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":2,"public_gists":0,"followers":0,"following":0,"created_at":"2024-10-28T14:32:48Z","updated_at":"2024-12-01T14:53:19Z"}
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1400
+                    [request_size] => 299
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.595801
+                    [namelookup_time] => 0.001377
+                    [connect_time] => 0.04263
+                    [pretransfer_time] => 0.089783
+                    [size_upload] => 0
+                    [size_download] => 1228
+                    [speed_download] => 2061
+                    [speed_upload] => 0
+                    [download_content_length] => 1228
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.595716
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56217
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 89560
+                    [connect_time_us] => 42630
+                    [namelookup_time_us] => 1377
+                    [pretransfer_time_us] => 89783
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 595716
+                    [total_time_us] => 595801
+                    [request_header] => GET /user? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:08:56+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user/emails?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user/emails
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 14:08:57 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "99e888217d469636dfa01638d2bc1e4f42f0b178d6edfb85c2bd009515a5ad41"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => A763:14DD5F:476F353:4917B18:67506279
+                    [content_length] => 93
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => user, user:email
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4988
+                    [x_ratelimit_reset] => 1733324749
+                    [x_ratelimit_used] => 12
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => [{"email":"a.gonzalez7@sapalomera.cat","primary":true,"verified":true,"visibility":"public"}]
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user/emails
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1368
+                    [request_size] => 306
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.280399
+                    [namelookup_time] => 0.001587
+                    [connect_time] => 0.043221
+                    [pretransfer_time] => 0.082052
+                    [size_upload] => 0
+                    [size_download] => 93
+                    [speed_download] => 331
+                    [speed_upload] => 0
+                    [download_content_length] => 93
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.28031
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56220
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 81843
+                    [connect_time_us] => 43221
+                    [namelookup_time_us] => 1587
+                    [pretransfer_time_us] => 82052
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 280310
+                    [total_time_us] => 280399
+                    [request_header] => GET /user/emails? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user/emails?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:09:27+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T15:09:27+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T15:09:27+01:00 -- Hybridauth\Provider\GitHub::authenticateBegin(), redirecting user to:
+Array
+(
+    [0] => https://github.com/login/oauth/authorize?response_type=code&client_id=Ov23liQKstdFfgFGP9Bo&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&scope=user%3Aemail&state=HA-BAPV53UESIN6DRC28M7X1OYJG9ZF4HQTK0LW
+)
+
+debug -- ::1 -- 2024-12-04T15:09:27+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T15:09:27+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T15:09:27+01:00 -- Hybridauth\Provider\GitHub::authenticateFinish(), callback url:
+Array
+(
+    [0] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php?code=b0d3fd2a9fbe08fa0ed3&state=HA-BAPV53UESIN6DRC28M7X1OYJG9ZF4HQTK0LW
+)
+
+debug -- ::1 -- 2024-12-04T15:09:27+01:00 -- Hybridauth\HttpClient\Curl::request( https://github.com/login/oauth/access_token, POST ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://github.com/login/oauth/access_token
+            [method] => POST
+            [parameters] => Array
+                (
+                    [client_id] => Ov23liQKstdFfgFGP9Bo
+                    [client_secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+                    [grant_type] => authorization_code
+                    [redirect_uri] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+                    [code] => b0d3fd2a9fbe08fa0ed3
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => GitHub.com
+                    [date] => Wed, 04 Dec 2024 14:09:28 GMT
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [vary] => Accept-Encoding, Accept, X-Requested-With
+                    [etag] => W/"b8cff7a0c145ffe75edfb046e6f55a47"
+                    [cache_control] => max-age=0, private, must-revalidate
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'; base-uri 'self'; child-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net/ productionresultssa1.blob.core.windows.net/ productionresultssa2.blob.core.windows.net/ productionresultssa3.blob.core.windows.net/ productionresultssa4.blob.core.windows.net/ productionresultssa5.blob.core.windows.net/ productionresultssa6.blob.core.windows.net/ productionresultssa7.blob.core.windows.net/ productionresultssa8.blob.core.windows.net/ productionresultssa9.blob.core.windows.net/ productionresultssa10.blob.core.windows.net/ productionresultssa11.blob.core.windows.net/ productionresultssa12.blob.core.windows.net/ productionresultssa13.blob.core.windows.net/ productionresultssa14.blob.core.windows.net/ productionresultssa15.blob.core.windows.net/ productionresultssa16.blob.core.windows.net/ productionresultssa17.blob.core.windows.net/ productionresultssa18.blob.core.windows.net/ productionresultssa19.blob.core.windows.net/ github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com secured-user-images.githubusercontent.com/ user-images.githubusercontent.com/ private-user-images.githubusercontent.com opengraph.githubassets.com github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/ secured-user-images.githubusercontent.com/ private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/
+                    [x_github_request_id] => 47E1:3BB6AE:9970BB:9C4472:67506298
+                )
+
+            [body] => access_token=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&scope=user%3Aemail&token_type=bearer
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://github.com/login/oauth/access_token
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 3905
+                    [request_size] => 553
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.325863
+                    [namelookup_time] => 0.001503
+                    [connect_time] => 0.04583
+                    [pretransfer_time] => 0.089639
+                    [size_upload] => 232
+                    [size_download] => 90
+                    [speed_download] => 276
+                    [speed_upload] => 711
+                    [download_content_length] => -1
+                    [upload_content_length] => 232
+                    [starttransfer_time] => 0.32577
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.4
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56255
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 89399
+                    [connect_time_us] => 45830
+                    [namelookup_time_us] => 1503
+                    [pretransfer_time_us] => 89639
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 325770
+                    [total_time_us] => 325863
+                    [request_header] => POST /login/oauth/access_token HTTP/2
+Host: github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 232
+Content-Type: application/x-www-form-urlencoded
+
+
+                    [effective_method] => POST
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [47] => 1
+                    [10015] => client_id=Ov23liQKstdFfgFGP9Bo&client_secret=127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&code=b0d3fd2a9fbe08fa0ed3
+                    [10002] => https://github.com/login/oauth/access_token
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:09:28+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 14:09:28 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "0539daa5619071f71dfd6887e885c88114c0f09aeb2fde53c251c94dab01d037"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => FCBB:2C2506:46502E5:47F784B:67506298
+                    [content_length] => 1228
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => 
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4987
+                    [x_ratelimit_reset] => 1733324749
+                    [x_ratelimit_used] => 13
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => {"login":"AlbertoGB7","id":186597022,"node_id":"U_kgDOCx8-ng","avatar_url":"https://avatars.githubusercontent.com/u/186597022?v=4","gravatar_id":"","url":"https://api.github.com/users/AlbertoGB7","html_url":"https://github.com/AlbertoGB7","followers_url":"https://api.github.com/users/AlbertoGB7/followers","following_url":"https://api.github.com/users/AlbertoGB7/following{/other_user}","gists_url":"https://api.github.com/users/AlbertoGB7/gists{/gist_id}","starred_url":"https://api.github.com/users/AlbertoGB7/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AlbertoGB7/subscriptions","organizations_url":"https://api.github.com/users/AlbertoGB7/orgs","repos_url":"https://api.github.com/users/AlbertoGB7/repos","events_url":"https://api.github.com/users/AlbertoGB7/events{/privacy}","received_events_url":"https://api.github.com/users/AlbertoGB7/received_events","type":"User","user_view_type":"public","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":2,"public_gists":0,"followers":0,"following":0,"created_at":"2024-10-28T14:32:48Z","updated_at":"2024-12-01T14:53:19Z"}
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1400
+                    [request_size] => 299
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.378561
+                    [namelookup_time] => 0.0014
+                    [connect_time] => 0.06809
+                    [pretransfer_time] => 0.139167
+                    [size_upload] => 0
+                    [size_download] => 1228
+                    [speed_download] => 3243
+                    [speed_upload] => 0
+                    [download_content_length] => 1228
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.378466
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56258
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 138952
+                    [connect_time_us] => 68090
+                    [namelookup_time_us] => 1400
+                    [pretransfer_time_us] => 139167
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 378466
+                    [total_time_us] => 378561
+                    [request_header] => GET /user? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:09:28+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user/emails?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user/emails
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 14:09:29 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "8d94c0843ee3d95f8fcc14283d9bc599eb68c89e5d09753b397e197f87c43991"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => 2F5F:3E2FEA:47D5CF2:4981038:67506298
+                    [content_length] => 93
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => user, user:email
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4986
+                    [x_ratelimit_reset] => 1733324749
+                    [x_ratelimit_used] => 14
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => [{"email":"a.gonzalez7@sapalomera.cat","primary":true,"verified":true,"visibility":"public"}]
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user/emails
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1368
+                    [request_size] => 306
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.291856
+                    [namelookup_time] => 0.001585
+                    [connect_time] => 0.033802
+                    [pretransfer_time] => 0.068512
+                    [size_upload] => 0
+                    [size_download] => 93
+                    [speed_download] => 318
+                    [speed_upload] => 0
+                    [download_content_length] => 93
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.291753
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56261
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 68298
+                    [connect_time_us] => 33802
+                    [namelookup_time_us] => 1585
+                    [pretransfer_time_us] => 68512
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 291753
+                    [total_time_us] => 291856
+                    [request_header] => GET /user/emails? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user/emails?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:09:35+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T15:09:35+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T15:09:35+01:00 -- Hybridauth\Provider\GitHub::authenticateBegin(), redirecting user to:
+Array
+(
+    [0] => https://github.com/login/oauth/authorize?response_type=code&client_id=Ov23liQKstdFfgFGP9Bo&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&scope=user%3Aemail&state=HA-E5OBWCVX1GZARN4TF2M6UHI07JLY8QD9SKP3
+)
+
+debug -- ::1 -- 2024-12-04T15:09:35+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T15:09:35+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T15:09:35+01:00 -- Hybridauth\Provider\GitHub::authenticateFinish(), callback url:
+Array
+(
+    [0] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php?code=8b7c520a66fb52fbd3a8&state=HA-E5OBWCVX1GZARN4TF2M6UHI07JLY8QD9SKP3
+)
+
+debug -- ::1 -- 2024-12-04T15:09:35+01:00 -- Hybridauth\HttpClient\Curl::request( https://github.com/login/oauth/access_token, POST ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://github.com/login/oauth/access_token
+            [method] => POST
+            [parameters] => Array
+                (
+                    [client_id] => Ov23liQKstdFfgFGP9Bo
+                    [client_secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+                    [grant_type] => authorization_code
+                    [redirect_uri] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+                    [code] => 8b7c520a66fb52fbd3a8
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => GitHub.com
+                    [date] => Wed, 04 Dec 2024 14:09:36 GMT
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [vary] => Accept-Encoding, Accept, X-Requested-With
+                    [etag] => W/"1d0ba2bf3c00c59d65738d9ce65700fd"
+                    [cache_control] => max-age=0, private, must-revalidate
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'; base-uri 'self'; child-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net/ productionresultssa1.blob.core.windows.net/ productionresultssa2.blob.core.windows.net/ productionresultssa3.blob.core.windows.net/ productionresultssa4.blob.core.windows.net/ productionresultssa5.blob.core.windows.net/ productionresultssa6.blob.core.windows.net/ productionresultssa7.blob.core.windows.net/ productionresultssa8.blob.core.windows.net/ productionresultssa9.blob.core.windows.net/ productionresultssa10.blob.core.windows.net/ productionresultssa11.blob.core.windows.net/ productionresultssa12.blob.core.windows.net/ productionresultssa13.blob.core.windows.net/ productionresultssa14.blob.core.windows.net/ productionresultssa15.blob.core.windows.net/ productionresultssa16.blob.core.windows.net/ productionresultssa17.blob.core.windows.net/ productionresultssa18.blob.core.windows.net/ productionresultssa19.blob.core.windows.net/ github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com secured-user-images.githubusercontent.com/ user-images.githubusercontent.com/ private-user-images.githubusercontent.com opengraph.githubassets.com github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/ secured-user-images.githubusercontent.com/ private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/
+                    [x_github_request_id] => 3BE0:3D903:9853B0:9B313C:675062A0
+                )
+
+            [body] => access_token=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&scope=user%3Aemail&token_type=bearer
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://github.com/login/oauth/access_token
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 3904
+                    [request_size] => 553
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.293554
+                    [namelookup_time] => 0.001666
+                    [connect_time] => 0.03698
+                    [pretransfer_time] => 0.075441
+                    [size_upload] => 232
+                    [size_download] => 90
+                    [speed_download] => 306
+                    [speed_upload] => 790
+                    [download_content_length] => -1
+                    [upload_content_length] => 232
+                    [starttransfer_time] => 0.29346
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.4
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56274
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 75205
+                    [connect_time_us] => 36980
+                    [namelookup_time_us] => 1666
+                    [pretransfer_time_us] => 75441
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 293460
+                    [total_time_us] => 293554
+                    [request_header] => POST /login/oauth/access_token HTTP/2
+Host: github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 232
+Content-Type: application/x-www-form-urlencoded
+
+
+                    [effective_method] => POST
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [47] => 1
+                    [10015] => client_id=Ov23liQKstdFfgFGP9Bo&client_secret=127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&code=8b7c520a66fb52fbd3a8
+                    [10002] => https://github.com/login/oauth/access_token
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:09:36+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 14:09:36 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "8ed8ca0c4ea04ff8219b1c1745212aa74afe22ca09f3178cfb1d83012020bf8c"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => BFFC:3E2FEA:47D7F2E:4983347:675062A0
+                    [content_length] => 1228
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => 
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4985
+                    [x_ratelimit_reset] => 1733324749
+                    [x_ratelimit_used] => 15
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => {"login":"AlbertoGB7","id":186597022,"node_id":"U_kgDOCx8-ng","avatar_url":"https://avatars.githubusercontent.com/u/186597022?v=4","gravatar_id":"","url":"https://api.github.com/users/AlbertoGB7","html_url":"https://github.com/AlbertoGB7","followers_url":"https://api.github.com/users/AlbertoGB7/followers","following_url":"https://api.github.com/users/AlbertoGB7/following{/other_user}","gists_url":"https://api.github.com/users/AlbertoGB7/gists{/gist_id}","starred_url":"https://api.github.com/users/AlbertoGB7/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AlbertoGB7/subscriptions","organizations_url":"https://api.github.com/users/AlbertoGB7/orgs","repos_url":"https://api.github.com/users/AlbertoGB7/repos","events_url":"https://api.github.com/users/AlbertoGB7/events{/privacy}","received_events_url":"https://api.github.com/users/AlbertoGB7/received_events","type":"User","user_view_type":"public","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":2,"public_gists":0,"followers":0,"following":0,"created_at":"2024-10-28T14:32:48Z","updated_at":"2024-12-01T14:53:19Z"}
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1400
+                    [request_size] => 299
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.378447
+                    [namelookup_time] => 0.00457
+                    [connect_time] => 0.058027
+                    [pretransfer_time] => 0.120017
+                    [size_upload] => 0
+                    [size_download] => 1228
+                    [speed_download] => 3244
+                    [speed_upload] => 0
+                    [download_content_length] => 1228
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.37836
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56277
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 119796
+                    [connect_time_us] => 58027
+                    [namelookup_time_us] => 4570
+                    [pretransfer_time_us] => 120017
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 378360
+                    [total_time_us] => 378447
+                    [request_header] => GET /user? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T15:09:36+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user/emails?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user/emails
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 14:09:37 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "67cf5ecb95700a57684f1b4efeeacdb5f348350f946c2ffe37c02c961cfbc8ce"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => 95E7:2ABC26:48781EC:4A2357D:675062A1
+                    [content_length] => 93
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => user, user:email
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4984
+                    [x_ratelimit_reset] => 1733324749
+                    [x_ratelimit_used] => 16
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => [{"email":"a.gonzalez7@sapalomera.cat","primary":true,"verified":true,"visibility":"public"}]
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user/emails
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1368
+                    [request_size] => 306
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.333347
+                    [namelookup_time] => 0.001479
+                    [connect_time] => 0.068568
+                    [pretransfer_time] => 0.132848
+                    [size_upload] => 0
+                    [size_download] => 93
+                    [speed_download] => 278
+                    [speed_upload] => 0
+                    [download_content_length] => 93
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.33326
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 56280
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 132633
+                    [connect_time_us] => 68568
+                    [namelookup_time_us] => 1479
+                    [pretransfer_time_us] => 132848
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 333260
+                    [total_time_us] => 333347
+                    [request_header] => GET /user/emails? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user/emails?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T16:16:38+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T16:16:38+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T16:16:38+01:00 -- Hybridauth\Provider\GitHub::authenticateBegin(), redirecting user to:
+Array
+(
+    [0] => https://github.com/login/oauth/authorize?response_type=code&client_id=Ov23liQKstdFfgFGP9Bo&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&scope=user%3Aemail&state=HA-8ZQKBSU02T4PW3NELAJI7G9MVD65HYCF1ROX
+)
+
+debug -- ::1 -- 2024-12-04T16:16:38+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T16:16:38+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T16:16:38+01:00 -- Hybridauth\Provider\GitHub::authenticateFinish(), callback url:
+Array
+(
+    [0] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php?code=5e72baf9f47d91913a3c&state=HA-8ZQKBSU02T4PW3NELAJI7G9MVD65HYCF1ROX
+)
+
+debug -- ::1 -- 2024-12-04T16:16:39+01:00 -- Hybridauth\HttpClient\Curl::request( https://github.com/login/oauth/access_token, POST ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://github.com/login/oauth/access_token
+            [method] => POST
+            [parameters] => Array
+                (
+                    [client_id] => Ov23liQKstdFfgFGP9Bo
+                    [client_secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+                    [grant_type] => authorization_code
+                    [redirect_uri] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+                    [code] => 5e72baf9f47d91913a3c
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => GitHub.com
+                    [date] => Wed, 04 Dec 2024 15:16:39 GMT
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [vary] => Accept-Encoding, Accept, X-Requested-With
+                    [etag] => W/"f8a259623a7050478713991c3b594c3c"
+                    [cache_control] => max-age=0, private, must-revalidate
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'; base-uri 'self'; child-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net/ productionresultssa1.blob.core.windows.net/ productionresultssa2.blob.core.windows.net/ productionresultssa3.blob.core.windows.net/ productionresultssa4.blob.core.windows.net/ productionresultssa5.blob.core.windows.net/ productionresultssa6.blob.core.windows.net/ productionresultssa7.blob.core.windows.net/ productionresultssa8.blob.core.windows.net/ productionresultssa9.blob.core.windows.net/ productionresultssa10.blob.core.windows.net/ productionresultssa11.blob.core.windows.net/ productionresultssa12.blob.core.windows.net/ productionresultssa13.blob.core.windows.net/ productionresultssa14.blob.core.windows.net/ productionresultssa15.blob.core.windows.net/ productionresultssa16.blob.core.windows.net/ productionresultssa17.blob.core.windows.net/ productionresultssa18.blob.core.windows.net/ productionresultssa19.blob.core.windows.net/ github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com secured-user-images.githubusercontent.com/ user-images.githubusercontent.com/ private-user-images.githubusercontent.com opengraph.githubassets.com github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/ secured-user-images.githubusercontent.com/ private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/
+                    [x_github_request_id] => F834:71256:FAB761:FF3DCC:67507256
+                )
+
+            [body] => access_token=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&scope=user%3Aemail&token_type=bearer
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://github.com/login/oauth/access_token
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 3904
+                    [request_size] => 553
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.309115
+                    [namelookup_time] => 0.00382
+                    [connect_time] => 0.03546
+                    [pretransfer_time] => 0.072087
+                    [size_upload] => 232
+                    [size_download] => 90
+                    [speed_download] => 291
+                    [speed_upload] => 750
+                    [download_content_length] => -1
+                    [upload_content_length] => 232
+                    [starttransfer_time] => 0.308998
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.4
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 57387
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 71811
+                    [connect_time_us] => 35460
+                    [namelookup_time_us] => 3820
+                    [pretransfer_time_us] => 72087
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 308998
+                    [total_time_us] => 309115
+                    [request_header] => POST /login/oauth/access_token HTTP/2
+Host: github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 232
+Content-Type: application/x-www-form-urlencoded
+
+
+                    [effective_method] => POST
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [47] => 1
+                    [10015] => client_id=Ov23liQKstdFfgFGP9Bo&client_secret=127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&code=5e72baf9f47d91913a3c
+                    [10002] => https://github.com/login/oauth/access_token
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T16:16:39+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 15:16:39 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "dda42082cc2b872a33155b11dcf8cbea984c5ccd1586beb1e427f5d7203bd7bd"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => AF3E:14DD5F:4C4B872:4E07724:67507257
+                    [content_length] => 1228
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => 
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4999
+                    [x_ratelimit_reset] => 1733328999
+                    [x_ratelimit_used] => 1
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => {"login":"AlbertoGB7","id":186597022,"node_id":"U_kgDOCx8-ng","avatar_url":"https://avatars.githubusercontent.com/u/186597022?v=4","gravatar_id":"","url":"https://api.github.com/users/AlbertoGB7","html_url":"https://github.com/AlbertoGB7","followers_url":"https://api.github.com/users/AlbertoGB7/followers","following_url":"https://api.github.com/users/AlbertoGB7/following{/other_user}","gists_url":"https://api.github.com/users/AlbertoGB7/gists{/gist_id}","starred_url":"https://api.github.com/users/AlbertoGB7/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AlbertoGB7/subscriptions","organizations_url":"https://api.github.com/users/AlbertoGB7/orgs","repos_url":"https://api.github.com/users/AlbertoGB7/repos","events_url":"https://api.github.com/users/AlbertoGB7/events{/privacy}","received_events_url":"https://api.github.com/users/AlbertoGB7/received_events","type":"User","user_view_type":"public","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":2,"public_gists":0,"followers":0,"following":0,"created_at":"2024-10-28T14:32:48Z","updated_at":"2024-12-01T14:53:19Z"}
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1399
+                    [request_size] => 299
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.351156
+                    [namelookup_time] => 0.023792
+                    [connect_time] => 0.061998
+                    [pretransfer_time] => 0.103879
+                    [size_upload] => 0
+                    [size_download] => 1228
+                    [speed_download] => 3497
+                    [speed_upload] => 0
+                    [download_content_length] => 1228
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.351073
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 57390
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 103669
+                    [connect_time_us] => 61998
+                    [namelookup_time_us] => 23792
+                    [pretransfer_time_us] => 103879
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 351073
+                    [total_time_us] => 351156
+                    [request_header] => GET /user? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T16:16:39+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user/emails?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user/emails
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 15:16:39 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "c438d64bf9be32c143061e8149f3bcb45cc3354fbfe9e41fc1cebedd1c14d9fa"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => E3AF:3E2FEA:4C91AA1:4E506C7:67507257
+                    [content_length] => 93
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => user, user:email
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4998
+                    [x_ratelimit_reset] => 1733328999
+                    [x_ratelimit_used] => 2
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => [{"email":"a.gonzalez7@sapalomera.cat","primary":true,"verified":true,"visibility":"public"}]
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user/emails
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1367
+                    [request_size] => 306
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.261276
+                    [namelookup_time] => 0.001537
+                    [connect_time] => 0.041323
+                    [pretransfer_time] => 0.083524
+                    [size_upload] => 0
+                    [size_download] => 93
+                    [speed_download] => 355
+                    [speed_upload] => 0
+                    [download_content_length] => 93
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.261195
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 57393
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 83278
+                    [connect_time_us] => 41323
+                    [namelookup_time_us] => 1537
+                    [pretransfer_time_us] => 83524
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 261195
+                    [total_time_us] => 261276
+                    [request_header] => GET /user/emails? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user/emails?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T16:16:57+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T16:16:57+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T16:16:57+01:00 -- Hybridauth\Provider\GitHub::authenticateBegin(), redirecting user to:
+Array
+(
+    [0] => https://github.com/login/oauth/authorize?response_type=code&client_id=Ov23liQKstdFfgFGP9Bo&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&scope=user%3Aemail&state=HA-1M73RQK05YGXWTI68ECSOBFAV2JZLHPU49DN
+)
+
+debug -- ::1 -- 2024-12-04T16:18:16+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T16:18:16+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T16:18:16+01:00 -- Hybridauth\Provider\GitHub::authenticateBegin(), redirecting user to:
+Array
+(
+    [0] => https://github.com/login/oauth/authorize?response_type=code&client_id=Ov23liQKstdFfgFGP9Bo&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&scope=user%3Aemail&state=HA-IPSY4UZ2ER9VD6K1CWQ80THNBAO57LJ3MGFX
+)
+
+debug -- ::1 -- 2024-12-04T16:18:16+01:00 -- Initialize Hybridauth\Provider\GitHub, config: 
+Array
+(
+    [enabled] => 1
+    [keys] => Array
+        (
+            [id] => Ov23liQKstdFfgFGP9Bo
+            [secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+        )
+
+    [scope] => user:email
+    [debug_mode] => 1
+    [debug_file] => C:\xampp\htdocs\Practiques\Practica-05\Controlador/hybridauth.log
+    [callback] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+)
+
+info -- ::1 -- 2024-12-04T16:18:16+01:00 -- Hybridauth\Provider\GitHub::authenticate()
+debug -- ::1 -- 2024-12-04T16:18:16+01:00 -- Hybridauth\Provider\GitHub::authenticateFinish(), callback url:
+Array
+(
+    [0] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php?code=8da4dd41b3dd949f203f&state=HA-IPSY4UZ2ER9VD6K1CWQ80THNBAO57LJ3MGFX
+)
+
+debug -- ::1 -- 2024-12-04T16:18:16+01:00 -- Hybridauth\HttpClient\Curl::request( https://github.com/login/oauth/access_token, POST ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://github.com/login/oauth/access_token
+            [method] => POST
+            [parameters] => Array
+                (
+                    [client_id] => Ov23liQKstdFfgFGP9Bo
+                    [client_secret] => 127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86
+                    [grant_type] => authorization_code
+                    [redirect_uri] => http://localhost/Practiques/Practica-05/Controlador/hyb_aut.php
+                    [code] => 8da4dd41b3dd949f203f
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => GitHub.com
+                    [date] => Wed, 04 Dec 2024 15:18:16 GMT
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [vary] => Accept-Encoding, Accept, X-Requested-With
+                    [etag] => W/"16e5beaa3521e3238c579af07a2d6920"
+                    [cache_control] => max-age=0, private, must-revalidate
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'; base-uri 'self'; child-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net/ productionresultssa1.blob.core.windows.net/ productionresultssa2.blob.core.windows.net/ productionresultssa3.blob.core.windows.net/ productionresultssa4.blob.core.windows.net/ productionresultssa5.blob.core.windows.net/ productionresultssa6.blob.core.windows.net/ productionresultssa7.blob.core.windows.net/ productionresultssa8.blob.core.windows.net/ productionresultssa9.blob.core.windows.net/ productionresultssa10.blob.core.windows.net/ productionresultssa11.blob.core.windows.net/ productionresultssa12.blob.core.windows.net/ productionresultssa13.blob.core.windows.net/ productionresultssa14.blob.core.windows.net/ productionresultssa15.blob.core.windows.net/ productionresultssa16.blob.core.windows.net/ productionresultssa17.blob.core.windows.net/ productionresultssa18.blob.core.windows.net/ productionresultssa19.blob.core.windows.net/ github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com secured-user-images.githubusercontent.com/ user-images.githubusercontent.com/ private-user-images.githubusercontent.com opengraph.githubassets.com github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/ secured-user-images.githubusercontent.com/ private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/
+                    [x_github_request_id] => 2535:1D1895:107FE98:10C9125:675072B8
+                )
+
+            [body] => access_token=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&scope=user%3Aemail&token_type=bearer
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://github.com/login/oauth/access_token
+                    [content_type] => application/x-www-form-urlencoded; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 3907
+                    [request_size] => 553
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.289415
+                    [namelookup_time] => 0.004297
+                    [connect_time] => 0.035369
+                    [pretransfer_time] => 0.078339
+                    [size_upload] => 232
+                    [size_download] => 90
+                    [speed_download] => 310
+                    [speed_upload] => 801
+                    [download_content_length] => -1
+                    [upload_content_length] => 232
+                    [starttransfer_time] => 0.289324
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.3
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 57440
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 78111
+                    [connect_time_us] => 35369
+                    [namelookup_time_us] => 4297
+                    [pretransfer_time_us] => 78339
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 289324
+                    [total_time_us] => 289415
+                    [request_header] => POST /login/oauth/access_token HTTP/2
+Host: github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 232
+Content-Type: application/x-www-form-urlencoded
+
+
+                    [effective_method] => POST
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [47] => 1
+                    [10015] => client_id=Ov23liQKstdFfgFGP9Bo&client_secret=127ec9f98bb7f93ebe1eac040b15d6d6dc16aa86&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2FPractiques%2FPractica-05%2FControlador%2Fhyb_aut.php&code=8da4dd41b3dd949f203f
+                    [10002] => https://github.com/login/oauth/access_token
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T16:18:17+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 15:18:17 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "cb26b839bc9e7733f6528c310988ef6ff64a76b3bd20e9ff8e2de2ec620757cb"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => 90AE:31CCEA:50D4A14:5293D3C:675072B9
+                    [content_length] => 1228
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => 
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4997
+                    [x_ratelimit_reset] => 1733328999
+                    [x_ratelimit_used] => 3
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => {"login":"AlbertoGB7","id":186597022,"node_id":"U_kgDOCx8-ng","avatar_url":"https://avatars.githubusercontent.com/u/186597022?v=4","gravatar_id":"","url":"https://api.github.com/users/AlbertoGB7","html_url":"https://github.com/AlbertoGB7","followers_url":"https://api.github.com/users/AlbertoGB7/followers","following_url":"https://api.github.com/users/AlbertoGB7/following{/other_user}","gists_url":"https://api.github.com/users/AlbertoGB7/gists{/gist_id}","starred_url":"https://api.github.com/users/AlbertoGB7/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AlbertoGB7/subscriptions","organizations_url":"https://api.github.com/users/AlbertoGB7/orgs","repos_url":"https://api.github.com/users/AlbertoGB7/repos","events_url":"https://api.github.com/users/AlbertoGB7/events{/privacy}","received_events_url":"https://api.github.com/users/AlbertoGB7/received_events","type":"User","user_view_type":"public","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":2,"public_gists":0,"followers":0,"following":0,"created_at":"2024-10-28T14:32:48Z","updated_at":"2024-12-01T14:53:19Z"}
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1399
+                    [request_size] => 299
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.310525
+                    [namelookup_time] => 0.003505
+                    [connect_time] => 0.041046
+                    [pretransfer_time] => 0.081787
+                    [size_upload] => 0
+                    [size_download] => 1228
+                    [speed_download] => 3954
+                    [speed_upload] => 0
+                    [download_content_length] => 1228
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.310445
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 57443
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 81569
+                    [connect_time_us] => 41046
+                    [namelookup_time_us] => 3505
+                    [pretransfer_time_us] => 81787
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 310445
+                    [total_time_us] => 310525
+                    [request_header] => GET /user? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+
+debug -- ::1 -- 2024-12-04T16:18:17+01:00 -- Hybridauth\HttpClient\Curl::request( https://api.github.com/user/emails?, GET ), response:
+Array
+(
+    [request] => Array
+        (
+            [uri] => https://api.github.com/user/emails
+            [method] => GET
+            [parameters] => Array
+                (
+                )
+
+            [headers] => Array
+                (
+                    [Accept] => */*
+                    [Cache-Control] => max-age=0
+                    [Connection] => keep-alive
+                    [Expect] => 
+                    [Pragma] => 
+                    [Authorization] => Bearer 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
+                )
+
+        )
+
+    [response] => Array
+        (
+            [code] => 200
+            [headers] => Array
+                (
+                    [server] => github.com
+                    [date] => Wed, 04 Dec 2024 15:18:17 GMT
+                    [content_type] => application/json; charset=utf-8
+                    [vary] => Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+                    [etag] => "16cb9a13ca7265ae4309e6985ea349371d5ebde99d7991e499d0f3f6592516f4"
+                    [cache_control] => private, max-age=60, s-maxage=60
+                    [strict_transport_security] => max-age=31536000; includeSubdomains; preload
+                    [x_frame_options] => deny
+                    [x_content_type_options] => nosniff
+                    [x_xss_protection] => 0
+                    [referrer_policy] => origin-when-cross-origin, strict-origin-when-cross-origin
+                    [content_security_policy] => default-src 'none'
+                    [x_github_request_id] => 7E32:2C1507:4DC2366:4F81764:675072B9
+                    [content_length] => 93
+                    [last_modified] => Sun, 01 Dec 2024 14:53:19 GMT
+                    [x_oauth_scopes] => user:email
+                    [x_accepted_oauth_scopes] => user, user:email
+                    [x_oauth_client_id] => Ov23liQKstdFfgFGP9Bo
+                    [x_github_media_type] => github.v3; format=json
+                    [x_github_api_version_selected] => 2022-11-28
+                    [x_ratelimit_limit] => 5000
+                    [x_ratelimit_remaining] => 4996
+                    [x_ratelimit_reset] => 1733328999
+                    [x_ratelimit_used] => 4
+                    [x_ratelimit_resource] => core
+                    [access_control_expose_headers] => ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+                    [access_control_allow_origin] => *
+                )
+
+            [body] => [{"email":"a.gonzalez7@sapalomera.cat","primary":true,"verified":true,"visibility":"public"}]
+        )
+
+    [client] => Array
+        (
+            [error] => 
+            [info] => Array
+                (
+                    [url] => https://api.github.com/user/emails
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 200
+                    [header_size] => 1367
+                    [request_size] => 306
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.305032
+                    [namelookup_time] => 0.001412
+                    [connect_time] => 0.040156
+                    [pretransfer_time] => 0.081864
+                    [size_upload] => 0
+                    [size_download] => 93
+                    [speed_download] => 304
+                    [speed_upload] => 0
+                    [download_content_length] => 93
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.304953
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 140.82.121.5
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 10.92.254.112
+                    [local_port] => 57446
+                    [http_version] => 3
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 81652
+                    [connect_time_us] => 40156
+                    [namelookup_time_us] => 1412
+                    [pretransfer_time_us] => 81864
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 304953
+                    [total_time_us] => 305032
+                    [request_header] => GET /user/emails? HTTP/2
+Host: api.github.com
+User-Agent: Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+Accept-Encoding: identity
+Accept: */*
+Cache-Control: max-age=0
+Connection: keep-alive
+Authorization: Bearer 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
+
+
+                    [effective_method] => GET
+                )
+
+            [opts] => Array
+                (
+                    [13] => 30
+                    [78] => 30
+                    [64] => 
+                    [81] => 
+                    [19913] => 1
+                    [52] => 1
+                    [68] => 5
+                    [2] => 1
+                    [10102] => identity
+                    [10018] => Hybridauth, PHP Social Authentication Library (https://github.com/hybridauth/hybridauth)
+                    [10002] => https://api.github.com/user/emails?
+                    [10023] => Array
+                        (
+                            [0] => Accept: */*
+                            [1] => Cache-Control: max-age=0
+                            [2] => Connection: keep-alive
+                            [3] => Expect: 
+                            [4] => Pragma: 
+                            [5] => Authorization: Bearer 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
+                        )
+
+                    [20079] => *omitted
+                )
+
+        )
+
+)
+

@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['
             $_SESSION['missatge'] = "Error en actualitzar la contrasenya. Torna-ho a intentar.";
         }
     } else {
+        
         $_SESSION['missatge'] = implode('<br>', $errors);
     }
 
